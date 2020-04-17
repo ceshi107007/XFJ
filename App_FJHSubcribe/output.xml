@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.1 (Python 3.6.5 on win32)" generated="20200416 21:35:28.152" rpa="false">
+<suite id="s1" name="GetSubcribeXys" source="D:\XFJ\API\App_FJHSubcribe\GetSubcribeXys.robot">
+<kw name="Create Session Common" library="Common" type="setup">
+<kw name="Fapi Create Session" library="FATL">
+<doc>Fapi Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>${APPIF_ALIAS}</arg>
+<arg>${APPIF_URL}</arg>
+</arguments>
+<msg timestamp="20200416 21:35:28.675" level="INFO">Creating Session using : alias=appif, url=https://api1.fjdaily.com/app_if, headers={'APITEST': '1'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200416 21:35:28.675" endtime="20200416 21:35:28.676"></status>
+</kw>
+<status status="PASS" starttime="20200416 21:35:28.674" endtime="20200416 21:35:28.676"></status>
+</kw>
+<test id="s1-t1" name="输入的关键字未匹配到数据，接口不返回数据">
+<kw name="Get Subcribe Xys" library="SubcribeCommon">
+<doc>翔宇号订阅列表查看</doc>
+<arguments>
+<arg>${KEY}</arg>
+</arguments>
+<kw name="Fapi Params Set" library="FATL">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to HTTP request parameters.</doc>
+<arguments>
+<arg>userID</arg>
+<arg>${userid}</arg>
+<arg>key</arg>
+<arg>${key}</arg>
+<arg>siteID</arg>
+<arg>${siteid}</arg>
+<arg>device</arg>
+<arg>${device}</arg>
+<arg>curVersions</arg>
+<arg>${CURVERSIONS}</arg>
+</arguments>
+<status status="PASS" starttime="20200416 21:35:28.682" endtime="20200416 21:35:28.682"></status>
+</kw>
+<kw name="Fapi Get" library="FATL">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${APPIF_ALIAS}</arg>
+<arg>${GETSUBCRIBEXYS}</arg>
+</arguments>
+<msg timestamp="20200416 21:35:29.914" level="INFO">Get Request using : alias=appif, uri=/getSubcribeXys, headers={'APITEST': '1'} json=None</msg>
+<msg timestamp="20200416 21:35:29.914" level="INFO">JSON string is : {</msg>
+<msg timestamp="20200416 21:35:29.915" level="INFO">  "status": 0,</msg>
+<msg timestamp="20200416 21:35:29.915" level="INFO">  "message": "success",</msg>
+<msg timestamp="20200416 21:35:29.915" level="INFO">  "data": {</msg>
+<msg timestamp="20200416 21:35:29.915" level="INFO">    "list": []</msg>
+<msg timestamp="20200416 21:35:29.915" level="INFO">  }</msg>
+<msg timestamp="20200416 21:35:29.915" level="INFO">}</msg>
+<msg timestamp="20200416 21:35:29.915" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<status status="PASS" starttime="20200416 21:35:28.683" endtime="20200416 21:35:29.915"></status>
+</kw>
+<kw name="Fapi Data To Object" library="FATL">
+<doc>Convert Fapi response content to python object</doc>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20200416 21:35:29.916" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001FACAD57940&gt;</msg>
+<status status="PASS" starttime="20200416 21:35:29.915" endtime="20200416 21:35:29.916"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${response_data}</arg>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200416 21:35:29.918" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001FACAD57940&gt;</msg>
+<status status="PASS" starttime="20200416 21:35:29.916" endtime="20200416 21:35:29.918"></status>
+</kw>
+<status status="PASS" starttime="20200416 21:35:28.681" endtime="20200416 21:35:29.918"></status>
+</kw>
+<kw name="Fapi Request Should Be Succeed" library="FATL">
+<doc>Fapi HTTP response code should be 200 (means success)</doc>
+<msg timestamp="20200416 21:35:29.919" level="INFO">HTTP response code is 200</msg>
+<status status="PASS" starttime="20200416 21:35:29.919" endtime="20200416 21:35:29.919"></status>
+</kw>
+<kw name="Fapi Status Should Be Succeed" library="FATL">
+<doc>Fapi response status code should be 0 (means success)</doc>
+<status status="PASS" starttime="20200416 21:35:29.920" endtime="20200416 21:35:29.920"></status>
+</kw>
+<tags>
+<tag>作者：张鹏</tag>
+<tag>冒烟集-新福建App</tag>
+<tag>翔宇号订阅列表搜索/互动订阅(林升)</tag>
+</tags>
+<status status="PASS" starttime="20200416 21:35:28.676" endtime="20200416 21:35:29.920" critical="yes"></status>
+</test>
+<test id="s1-t2" name="输入的关键字为空时，接口返回所有订阅的数据（仅客户端做了限制）">
+<kw name="Get Subcribe Xys" library="SubcribeCommon">
+<doc>翔宇号订阅列表查看</doc>
+<arguments>
+<arg>${KEY1}</arg>
+</arguments>
+<kw name="Fapi Params Set" library="FATL">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to HTTP request parameters.</doc>
+<arguments>
+<arg>userID</arg>
+<arg>${userid}</arg>
+<arg>key</arg>
+<arg>${key}</arg>
+<arg>siteID</arg>
+<arg>${siteid}</arg>
+<arg>device</arg>
+<arg>${device}</arg>
+<arg>curVersions</arg>
+<arg>${CURVERSIONS}</arg>
+</arguments>
+<status status="PASS" starttime="20200416 21:35:29.929" endtime="20200416 21:35:29.930"></status>
+</kw>
+<kw name="Fapi Get" library="FATL">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${APPIF_ALIAS}</arg>
+<arg>${GETSUBCRIBEXYS}</arg>
+</arguments>
+<msg timestamp="20200416 21:35:29.980" level="INFO">Get Request using : alias=appif, uri=/getSubcribeXys, headers={'APITEST': '1'} json=None</msg>
+<msg timestamp="20200416 21:35:29.980" level="INFO">JSON string is : {</msg>
+<msg timestamp="20200416 21:35:29.980" level="INFO">  "status": 0,</msg>
+<msg timestamp="20200416 21:35:29.980" level="INFO">  "message": "success",</msg>
+<msg timestamp="20200416 21:35:29.980" level="INFO">  "data": {</msg>
+<msg timestamp="20200416 21:35:29.980" level="INFO">    "list": []</msg>
+<msg timestamp="20200416 21:35:29.981" level="INFO">  }</msg>
+<msg timestamp="20200416 21:35:29.981" level="INFO">}</msg>
+<msg timestamp="20200416 21:35:29.981" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<status status="PASS" starttime="20200416 21:35:29.930" endtime="20200416 21:35:29.981"></status>
+</kw>
+<kw name="Fapi Data To Object" library="FATL">
+<doc>Convert Fapi response content to python object</doc>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20200416 21:35:29.982" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001FACAD57668&gt;</msg>
+<status status="PASS" starttime="20200416 21:35:29.982" endtime="20200416 21:35:29.982"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${response_data}</arg>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200416 21:35:29.983" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001FACAD57668&gt;</msg>
+<status status="PASS" starttime="20200416 21:35:29.982" endtime="20200416 21:35:29.983"></status>
+</kw>
+<status status="PASS" starttime="20200416 21:35:29.929" endtime="20200416 21:35:29.983"></status>
+</kw>
+<kw name="Fapi Request Should Be Succeed" library="FATL">
+<doc>Fapi HTTP response code should be 200 (means success)</doc>
+<msg timestamp="20200416 21:35:29.985" level="INFO">HTTP response code is 200</msg>
+<status status="PASS" starttime="20200416 21:35:29.984" endtime="20200416 21:35:29.985"></status>
+</kw>
+<kw name="Fapi Status Should Be Succeed" library="FATL">
+<doc>Fapi response status code should be 0 (means success)</doc>
+<status status="PASS" starttime="20200416 21:35:29.986" endtime="20200416 21:35:29.986"></status>
+</kw>
+<tags>
+<tag>作者：张鹏</tag>
+<tag>冒烟集-新福建App</tag>
+<tag>翔宇号订阅列表搜索/互动订阅(林升)</tag>
+</tags>
+<status status="PASS" starttime="20200416 21:35:29.923" endtime="20200416 21:35:29.987" critical="yes"></status>
+</test>
+<test id="s1-t3" name="输入的关键字匹配到数据，接口返回所有订阅的数据">
+<kw name="Get Subcribe Xys" library="SubcribeCommon">
+<doc>翔宇号订阅列表查看</doc>
+<arguments>
+<arg>${KEY2}</arg>
+</arguments>
+<kw name="Fapi Params Set" library="FATL">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to HTTP request parameters.</doc>
+<arguments>
+<arg>userID</arg>
+<arg>${userid}</arg>
+<arg>key</arg>
+<arg>${key}</arg>
+<arg>siteID</arg>
+<arg>${siteid}</arg>
+<arg>device</arg>
+<arg>${device}</arg>
+<arg>curVersions</arg>
+<arg>${CURVERSIONS}</arg>
+</arguments>
+<status status="PASS" starttime="20200416 21:35:29.992" endtime="20200416 21:35:29.993"></status>
+</kw>
+<kw name="Fapi Get" library="FATL">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${APPIF_ALIAS}</arg>
+<arg>${GETSUBCRIBEXYS}</arg>
+</arguments>
+<msg timestamp="20200416 21:35:30.047" level="INFO">Get Request using : alias=appif, uri=/getSubcribeXys, headers={'APITEST': '1'} json=None</msg>
+<msg timestamp="20200416 21:35:30.047" level="INFO">JSON string is : {</msg>
+<msg timestamp="20200416 21:35:30.047" level="INFO">  "status": 0,</msg>
+<msg timestamp="20200416 21:35:30.048" level="INFO">  "message": "success",</msg>
+<msg timestamp="20200416 21:35:30.048" level="INFO">  "data": {</msg>
+<msg timestamp="20200416 21:35:30.048" level="INFO">    "list": []</msg>
+<msg timestamp="20200416 21:35:30.048" level="INFO">  }</msg>
+<msg timestamp="20200416 21:35:30.048" level="INFO">}</msg>
+<msg timestamp="20200416 21:35:30.048" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<status status="PASS" starttime="20200416 21:35:29.993" endtime="20200416 21:35:30.048"></status>
+</kw>
+<kw name="Fapi Data To Object" library="FATL">
+<doc>Convert Fapi response content to python object</doc>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20200416 21:35:30.049" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001FACADA70F0&gt;</msg>
+<status status="PASS" starttime="20200416 21:35:30.048" endtime="20200416 21:35:30.049"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${response_data}</arg>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200416 21:35:30.050" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001FACADA70F0&gt;</msg>
+<status status="PASS" starttime="20200416 21:35:30.049" endtime="20200416 21:35:30.050"></status>
+</kw>
+<status status="PASS" starttime="20200416 21:35:29.992" endtime="20200416 21:35:30.050"></status>
+</kw>
+<kw name="Fapi Request Should Be Succeed" library="FATL">
+<doc>Fapi HTTP response code should be 200 (means success)</doc>
+<msg timestamp="20200416 21:35:30.051" level="INFO">HTTP response code is 200</msg>
+<status status="PASS" starttime="20200416 21:35:30.051" endtime="20200416 21:35:30.051"></status>
+</kw>
+<kw name="Fapi Status Should Be Succeed" library="FATL">
+<doc>Fapi response status code should be 0 (means success)</doc>
+<status status="PASS" starttime="20200416 21:35:30.052" endtime="20200416 21:35:30.052"></status>
+</kw>
+<tags>
+<tag>作者：张鹏</tag>
+<tag>冒烟集-新福建App</tag>
+<tag>翔宇号订阅列表搜索/互动订阅(林升)</tag>
+</tags>
+<status status="PASS" starttime="20200416 21:35:29.988" endtime="20200416 21:35:30.052" critical="yes"></status>
+</test>
+<kw name="Fapi Delete All Sessions" library="FATL" type="teardown">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20200416 21:35:30.055" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20200416 21:35:30.054" endtime="20200416 21:35:30.055"></status>
+</kw>
+<doc>翔宇号订阅列表搜索</doc>
+<status status="PASS" starttime="20200416 21:35:28.156" endtime="20200416 21:35:30.055"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0">作者：张鹏</stat>
+<stat pass="3" fail="0">冒烟集-新福建App</stat>
+<stat pass="3" fail="0">翔宇号订阅列表搜索/互动订阅(林升)</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="GetSubcribeXys">GetSubcribeXys</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200416 21:35:28.189" level="ERROR">Error in file 'D:\XFJ\API\App_FJHSubcribe\SubcribeCommon.robot': Non-existing setting 'Force Tags'.</msg>
+<msg timestamp="20200416 21:35:28.190" level="ERROR">Error in file 'D:\XFJ\API\App_FJHSubcribe\SubcribeCommon.robot': Non-existing setting '...'.</msg>
+</errors>
+</robot>
