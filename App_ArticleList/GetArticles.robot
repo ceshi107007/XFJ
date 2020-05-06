@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation                           该文档是获取栏目模块接口用例文档
-Resource                                ../App_Article/Article_Common.robot
+Resource                                ../App_ArticleList/Article_Common.robot
 Suite Setup                             Create Session Common
 Suite Teardown                          Fapi Delete All Sessions
 Force Tags                              冒烟集-新福建APP     栏目接口/读取子栏目（张进）

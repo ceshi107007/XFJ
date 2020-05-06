@@ -17,8 +17,7 @@ ${RESULT}                               0
 订阅列表不存在时数据返回为空
     Subcribe View
 #    Should Be Equal As Strings         len(${response_data})                   ${RESULT}
-    Fapi Request Should Be Succeed
-    Fapi Status Should Be Succeed
+    Fapi Data Field Count Should Be     ${response_data}                        ${RESULT}
 
 订阅列表存在时数据返回不为空
     Subcribe View

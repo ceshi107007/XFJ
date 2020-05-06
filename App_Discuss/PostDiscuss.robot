@@ -20,20 +20,10 @@ ${RESULT1}                              flase
 
 *** Test Cases ***
 正常提交评论
-    Get Article Content                 ${ROOTID}           #获取评论数
-    ${discusscount}                     Set Variable        ${response_data.countDiscuss}
     Post Discuss                        ${ROOTID}
     ...                                 ${CONTENT}
     Fapi Request Should Be Succeed
     Should Be Equal As Strings          ${response_data.value}                  ${RESULT0}
-    Sleep                               30
-    Get Article Content                 ${ROOTID}
-    ${discusscount2}                    Set Variable        ${response_data.countDiscuss}
-    Should Be True                      ${discusscount2}>${discusscount}        #评论数是否增加
-    Get DiscussView                     ${ROOTID}
-    ...                                 ${PAGE}
-    Fapi Request Should Be Succeed
-    Should Be True                      ${response_data.totalCount}>${discusscount}                 #评论数是否增加
 
 提交包括非法词的评论
     Post Discuss                        ${ROOTID}

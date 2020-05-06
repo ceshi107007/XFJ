@@ -6,6 +6,7 @@ Force Tags                              冒烟集-新福建APP     稿件列表�
 
 *** Variables ***
 ${GETARTICLES_URI}                      /getArticles        #栏目稿件列表
+${GETARTICLECOUNTS_URI}                 /getArticleCounts   #列表页稿件阅读数接口
 ${SITEID}                               1
 
 
@@ -18,5 +19,16 @@ Get Articles
     ...                                 siteId              ${siteid}
     ...                                 curVersions         ${CURVERSIONS}
     Fapi Get                            ${APPIF_ALIAS}      ${GETARTICLES_URI}
+    ${data}                             Fapi Data To Object
+    Set Suite Variable                  ${response_data}    ${data}
+
+Get Article Counts
+    [Documentation]                     获取列表页稿件的阅读数接口
+    [Arguments]                         ${articleid}
+    ...                                 ${siteid}=${SITEID}
+    Fapi Params Set                     articleId           ${articleid}
+    ...                                 siteId              ${siteid}
+    ...                                 curVersions         ${CURVERSIONS}
+    Fapi Get                            ${APPIF_ALIAS}      ${GETARTICLECOUNTS_URI}
     ${data}                             Fapi Data To Object
     Set Suite Variable                  ${response_data}    ${data}

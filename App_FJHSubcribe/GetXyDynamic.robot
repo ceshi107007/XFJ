@@ -8,7 +8,7 @@ Suite Teardown                          Fapi Delete All Sessions
 
 
 *** Variables ***
-${XYID0}                                63
+${XYID0}                                1
 ${XYID1}                                1234567890
 
 
@@ -16,7 +16,7 @@ ${XYID1}                                1234567890
 
 
 *** Test Cases ***
-当翔宇号存在时查看翔宇号动态列表，接口返回列表下数据
+当翔宇号存在时查看翔宇号动态列表，接口返回列表下数据(因返回数据为动态的，无法进行校验)
     Get Xy Dynamic                      ${XYID0}
     Fapi Status Should Be Succeed
     Fapi Request Should Be Succeed

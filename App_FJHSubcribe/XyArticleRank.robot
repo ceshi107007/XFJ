@@ -13,7 +13,7 @@ Suite Teardown                          Fapi Delete All Sessions
 
 
 *** Test Cases ***
-翔宇号稿件影响力排行榜查看，接口返回列表页数据
+翔宇号稿件影响力排行榜查看，接口返回列表页数据（因接口返回数据为动态，无法用返回结果进行断言）
     Xy Article Rank
     Fapi Status Should Be Succeed
     Fapi Request Should Be Succeed

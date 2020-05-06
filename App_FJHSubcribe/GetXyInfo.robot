@@ -7,12 +7,19 @@ Suite Setup                             Create Session Common
 Suite Teardown                          Fapi Delete All Sessions
 
 *** Variables ***
-${ID}                                   27
+${ID0}                                  57
+${ID1}                                  123456
+${RESULT}                               福建交警
+${LIST}                               0
 
 *** Keywords ***
 
 
 *** Test Cases ***
 输入正确的翔宇号ID查看详情空间，接口返回成功
-    Get Xy Info                         ${ID}
-    Should Be Equal As Strings          ${response_data.xyID}                   ${ID}
+    Get Xy Info                         ${ID0}
+    Should Be Equal As Strings          ${response_data.topic}                   ${RESULT}
+
+输入错误的翔宇号ID查看详情空间，接口返回成功
+    Get Xy Info                         ${ID1}
+    Should Be Equal As Strings          ${response_data.articleCount}           ${LIST}

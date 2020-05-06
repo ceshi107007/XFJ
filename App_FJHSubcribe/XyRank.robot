@@ -13,12 +13,12 @@ ${NEW_USERID}                           14
 *** Keywords ***
 
 *** Test Cases ***
-未登录账号时查看翔宇号影响力排行,接口返回成功
+未登录账号时查看翔宇号影响力排行,接口返回数据成功（动态数据无法校验）
     Xy Rank
     Fapi Status Should Be Succeed
     Fapi Request Should Be Succeed
 
-登录账号时查看翔宇号影响力排行,接口返回成功
+登录账号时查看翔宇号影响力排行,接口返回成功（动态数据无法校验）
     Xy Rank                             ${NEW_USERID}
     Fapi Status Should Be Succeed
     Fapi Request Should Be Succeed

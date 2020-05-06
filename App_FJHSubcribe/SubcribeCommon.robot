@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation                           互动订阅相关接口业务关键字
 Resource                                ../Common/Common.robot
+Library                                 urllib3
 Force Tags                              冒烟集-新福建App         订阅（林升）
 ...                                     作者：张鹏
 
@@ -20,17 +21,20 @@ ${HITXYBULLETIN_URI}                    /hitXyBulletin      #翔宇号打榜
 ${XYARTICLERANK_URI}                    /xyArticleRank      #翔宇号稿件影响力排行
 ${RECOMMENDXYS_URI}                     /recommendXys       #推荐翔宇号
 ${GETXYDYNAMIC_URI}                     /getXyDynamic       #翔宇号动态列表
+${GETUSERHITINFO_URI}                   /getUserHitInfo     #获取当天打榜信息
 ${SITEID}                               1                   #新福建站点
 ${USERID}                               571
 ${TYPE}                                 4
 ${DEVICE}                               3FAC4E73-9345-4515-92FA-59616B1B218C
 ${ID}                                   27
 ${KEY}                                  福建
-${COLUMNID}                             32
+${COLUMNID}                             8
 ${CODE}                                 XYACCOUNT
 ${START}                                0
 ${COUNT}                                20
-${XY_ID}                                44                  #打榜翔宇号ID
+${XY_ID}                                57
+${CATID}                                186
+${TYPE}                                 0
 
 *** Keywords ***
 Topic Sub
@@ -73,11 +77,11 @@ Topic Sub Cancel
 
 Subcribe Xy
     [Documentation]                     查看翔宇号订阅列表接口
-    [Arguments]                         ${userid}=${USERID}
+    [Arguments]                         ${colid}=${8}
     ...                                 ${siteid}=${SITEID}
     ...                                 ${device}=${DEVICE}
     Fapi Params Set                     curVersions         ${CURVERSIONS}
-    ...                                 userID              ${userid}
+    ...                                 colID               ${colid}
     ...                                 siteID              ${siteid}
     ...                                 device              ${device}
     Fapi Get                            ${APPIF_ALIAS}      ${SUBCRIBEXY}
@@ -86,10 +90,11 @@ Subcribe Xy
 
 Get Subcribe Xys
     [Documentation]                     翔宇号订阅列表查看
-    [Arguments]                         ${key}
+    [Arguments]                         ${key}=${KEY}
     ...                                 ${userid}=${USERID}
     ...                                 ${siteid}=${SITEID}
     ...                                 ${device}=${DEVICE}
+    Disable Warnings
     Fapi Params Set                     userID              ${userid}
     ...                                 key                 ${key}
     ...                                 siteID              ${siteid}
@@ -98,6 +103,7 @@ Get Subcribe Xys
     Fapi Get                            ${APPIF_ALIAS}      ${GETSUBCRIBEXYS}
     ${data}                             Fapi Data To Object
     Set Suite Variable                  ${response_data}    ${data}
+
 
 Subcribe View
     [Documentation]                     订阅列表查看
@@ -111,19 +117,6 @@ Subcribe View
     ...                                 device              ${device}
     ...                                 curVersions         ${CURVERSIONS}
     Fapi Get                            ${APPIF_ALIAS}      ${SUBCRIBEVIEW}
-    ${data}                             Fapi Data To Object
-    Set Suite Variable                  ${response_data}    ${data}
-
-Get Subcribe Cols
-    [Documentation]                     订阅栏目搜索
-    [Arguments]                         ${key}=${KEY}
-    ...                                 ${colid}=${COLUMNID}
-    ...                                 ${siteid}=${SITEID}
-    Fapi Params Set                     siteID              ${siteid}
-    ...                                 key                 ${key}
-    ...                                 colID               ${colid}
-    ...                                 curVersions         ${CURVERSIONS}
-    Fapi Get                            ${APPIF_ALIAS}      ${GETSUBCRIBECOLS}
     ${data}                             Fapi Data To Object
     Set Suite Variable                  ${response_data}    ${data}
 
@@ -157,6 +150,7 @@ Get Xy Info
     [Documentation]                     查看翔宇号详情空间接口
     [Arguments]                         ${id}
     ...                                 ${siteid}=${SITEID}
+    Disable Warnings
     Fapi Params Set                     id                  ${id}
     ...                                 siteID              ${siteid}
     ...                                 curVersions         ${CURVERSIONS}
@@ -203,6 +197,8 @@ Hit Xy Bulletin
     ...                                 id                  ${id}
     ...                                 userID              ${userid}
     Fapi Post                           ${APPIF_ALIAS}      ${HITXYBULLETIN_URI}          data=${bodyData}
+    ${data}                             Fapi Data To Object
+    Set Suite Variable                  ${response_data}    ${data}
 
 Xy Article Rank
     [Documentation]                     翔宇号稿件影响力排行榜
@@ -232,6 +228,22 @@ Get Xy Dynamic
     ...                                 xyId                ${xyid}
     ...                                 curVersions         ${CURVERSIONS}
     Fapi Get                            ${APPIF_ALIAS}      ${GETXYDYNAMIC_URI}
+    ${data}                             Fapi Data To Object
+    Set Suite Variable                  ${response_data}    ${data}
+
+Get User Hit Info
+    [Documentation]                     获取当天打榜信息
+    [Arguments]                         ${fjid}
+    ...                                 ${userid}=${USERID}
+    ...                                 ${siteid}=${SITEID}
+    ...                                 ${type}=${0}
+    Disable Warnings
+    Fapi Params Set                     siteID              ${siteid}
+    ...                                 type                ${type}
+    ...                                 userID              ${userid}
+    ...                                 fjID                ${fjid}
+    ...                                 curVersions         ${CURVERSIONS}
+    Fapi Get                            ${APPIF_ALIAS}      ${GETUSERHITINFO_URI}
     ${data}                             Fapi Data To Object
     Set Suite Variable                  ${response_data}    ${data}
 

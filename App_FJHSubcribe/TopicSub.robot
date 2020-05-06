@@ -20,6 +20,6 @@ ${RESULT1}                              true
     Topic Sub
     Should Be Equal As Strings          ${response_data.value}                  ${RESULT1}
 
-翔宇号不存在时订阅，接口依旧返回true
+翔宇号不存在时订阅，接口依旧返回true（后台接口未对政务号id是否存在做校验）
     Topic Sub                           Time
     Should Be Equal As Strings          ${response_data.value}                  ${RESULT1}

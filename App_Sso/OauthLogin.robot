@@ -19,10 +19,10 @@ Force Tags                              冒烟集-新福建APP     sso-app接口
 &{APPLE}                                provider=apple
 ...                                     oid=001587
 ...                                     nickname="APPLE001587"
-${RESULT_QQ}                            lili
+${RESULT_QQ}                            1234567890123456
 ${RESULT_WEIBO}                         用户7126945184
-${RESULT_WECHAT}                        "tester~『测试』"
-${RESULT_APPLE}                         "APPLE001587"
+${RESULT_WECHAT}                        tester~『测试』
+${RESULT_APPLE}                         APPLE001587
 
 
 *** Keywords ***
@@ -34,8 +34,7 @@ ${RESULT_APPLE}                         "APPLE001587"
     ...                                 ${QQ.nickname}
     Fapi Request Should Be Succeed
     Fapi Status Should Be Succeed
-    Should Be Equal As Strings          ${response_data.nickname}
-    ...                                 ${RESULT_QQ}
+    Should Be Equal As Strings          ${response_data.nickname}       ${RESULT_QQ}
 
 第三方微博登录，登录成功后接口返回账号相关数据
     SSO Oauth Login                     ${WEIBO.provider}
@@ -43,8 +42,7 @@ ${RESULT_APPLE}                         "APPLE001587"
     ...                                 ${WEIBO.nickname}
     Fapi Request Should Be Succeed
     Fapi Status Should Be Succeed
-    Should Be Equal As Strings          ${response_data.nickname}
-    ...                                 ${RESULT_WEIBO}
+    Should Be Equal As Strings          ${response_data.nickname}       ${RESULT_WEIBO}
 
 第三方微信登录，登录成功后接口返回账号相关数据
     SSO Oauth Login                     ${WECHAT.provider}
@@ -52,8 +50,7 @@ ${RESULT_APPLE}                         "APPLE001587"
     ...                                 ${WECHAT.nickname}
     Fapi Request Should Be Succeed
     Fapi Status Should Be Succeed
-    Should Be Equal As Strings          ${response_data.nickname}
-    ...                                 ${RESULT_WECHAT}
+    Should Be Equal As Strings          ${response_data.nickname}       ${RESULT_WECHAT}
 
 第三方APPLE ID登录，登录成功后接口返回账号相关数据
     SSO Oauth Login                     ${APPLE.provider}
@@ -61,7 +58,6 @@ ${RESULT_APPLE}                         "APPLE001587"
     ...                                 ${APPLE.nickname}
     Fapi Request Should Be Succeed
     Fapi Status Should Be Succeed
-    Should Be Equal As Strings          ${response_data.nickname}
-    ...                                 ${RESULT_APPLE}
+    Should Be Equal As Strings          ${response_data.nickname}       ${RESULT_APPLE}
 
 

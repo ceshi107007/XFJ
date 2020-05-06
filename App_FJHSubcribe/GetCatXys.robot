@@ -7,7 +7,7 @@ Suite Setup                             Create Session Common
 Suite Teardown                          Fapi Delete All Sessions
 
 *** Variables ***
-${ID0}                                  101
+${ID0}                                  207                 #显示政务机构分类下的福建号数据
 ${ID1}                                  666
 ${RESULT0}
 ${RESULT1}                              0
@@ -15,7 +15,7 @@ ${RESULT1}                              0
 *** Keywords ***
 
 *** Test Cases ***
-查看翔宇号子分类列表数据，接口返回成功
+查看翔宇号子分类列表数据，接口返回成功（因数据为动态，无法用返回结果做断言）
     Get Cat Xys                         ${ID0}
     Fapi Request Should Be Succeed
     Fapi Status Should Be Succeed

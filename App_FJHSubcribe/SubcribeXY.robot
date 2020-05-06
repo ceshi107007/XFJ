@@ -8,18 +8,18 @@ Suite Teardown                          Fapi Delete All Sessions
 
 
 *** Variables ***
+${COLID}                                66
 ${RESULT}                               0
 
 *** Keywords ***
 
 
 *** Test Cases ***
-#未登录账号时查看翔宇号订阅列表，接口返回数据
-#    Subcribe Xy                         ${EMPTY}
-#    Fapi Request Should Be Succeed
-#    Fapi Status Should Be Succeed
+当输入其他非福建号栏目时查看翔宇号订阅列表，接口返回为空
+    Subcribe Xy                         ${COLID}
+    Fapi Data Field Count Should Be     ${response_data.list}                   ${RESULT}
 
-登录账号时查看翔宇号订阅列表，接口返回数据
+输入福建号栏目查看翔宇号订阅列表，接口返回数据（因数据是动态的无法对返回值进行断言）
     Subcribe Xy
     Fapi Request Should Be Succeed
     Fapi Status Should Be Succeed

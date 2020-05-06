@@ -14,7 +14,7 @@ Suite Teardown                          Fapi Delete All Sessions
 
 
 *** Test Cases ***
-推荐翔宇号查看，接口返回成功
+推荐翔宇号查看，接口返回成功(返回为动态数据)
     Recommend Xys
     Fapi Status Should Be Succeed
     Fapi Request Should Be Succeed

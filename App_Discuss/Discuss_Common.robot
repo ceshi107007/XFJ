@@ -10,6 +10,7 @@ ${DELMYDISCUSS_URI}                     /delMyDiscuss
 ${DISCUSS_URI}                          /discuss            #提交评论
 ${EVENT_URI}                            //event
 ${GETDISCUSSHOT_URI}                    /discussHot
+${DISCUSSVIEW_URI}                      /discussView
 ${SITEID}                               1
 ${SOURCETYPE}                           0
 ${CHANNEL}                              2
@@ -27,16 +28,16 @@ ${CHANNEL0}                             1
 *** Keywords ***
 Expose Discuss
     [Documentation]                     评论举报
-    [Arguments]                         ${rootid}	
-    ...                                 ${type} 
+    [Arguments]                         ${rootid}
+    ...                                 ${type}
     ...                                 ${sourcetype}
     ...                                 ${siteid}=${SITEID}
     Fapi Params Set                     userID              ${userid}
-    ... 								rootID 				${rootid} 
+    ... 								rootID 				${rootid}
     ... 								sourceType 		    ${sourcetype}
     ... 							    type 				${type}
-    ... 								userName 		 	${username}	 
-    ... 								reason 				${reason}	 
+    ... 								userName 		 	${username}
+    ... 								reason 				${reason}
     ...  			                    siteID              ${siteid}
     ...                                 curVersions         ${CURVERSIONS}
     Fapi Headers Set
@@ -47,16 +48,16 @@ Expose Discuss
 
 Delete My Discuss
     [Documentation]                     评论删除
-    [Arguments]                         ${fileid}    
+    [Arguments]                         ${fileid}
     ...                                 ${siteid}=${SITEID}
     Fapi Params Set                     userID              ${userid}
-    ...                                 fileId              ${fileid}     
+    ...                                 fileId              ${fileid}
     ...                                 siteID              ${siteid}
     ...                                 curVersions         ${CURVERSIONS}
     Fapi Get                            ${APPIF_ALIAS}      ${DELMYDISCUSS_URI}
     ${data}                             Fapi Data To Object
     Set Suite Variable                  ${response_data}    ${data}
-	
+
 Post Discuss
     [Documentation]                     提交评论，为简化，只需要输入评论的稿件ID和评论内容
     [Arguments]                         ${rootid}
@@ -86,7 +87,7 @@ Post Discuss
     Fapi Post                           ${APPIF_ALIAS}      ${DISCUSS_URI}      data=${bodyData}
     ${data}                             Fapi Data To Object
     Set Suite Variable                  ${response_data}    ${data}
-	
+
 Get Discuss Hot
     [Documentation]                     查看热门评论接口
     [Arguments]                         ${id}
@@ -114,5 +115,23 @@ Get Event
     ...                                 channel             ${channel}
     ...                                 curVersions         ${CURVERSIONS}
     Fapi Get                            ${APPIF_ALIAS}      ${EVENT_URI}
+    ${data}                             Fapi Data To Object
+    Set Suite Variable                  ${response_data}    ${data}
+
+Discuss View
+    [Documentation]                     评论列表
+    [Arguments]                         ${id}
+    ...                                 ${page}
+    ...                                 ${siteid}=${SITEID}
+    ...                                 ${source}=${SOURCE}
+    ...                                 ${lastfileid}=${LASTFILEID}
+    Fapi Params Set                     id                  ${id}
+    ...                                 source              ${source}
+    ...                                 page                ${page}
+    ...                                 siteId              ${siteid}
+    ...                                 source              ${source}
+    ...                                 lastFileId          ${lastfileid}
+    ...                                 curVersions         ${CURVERSIONS}
+    Fapi Get                            ${APPIF_ALIAS}      ${DISCUSSVIEW_URI}
     ${data}                             Fapi Data To Object
     Set Suite Variable                  ${response_data}    ${data}

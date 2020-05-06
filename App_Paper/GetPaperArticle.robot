@@ -7,22 +7,21 @@ Force Tags                              冒烟集-新福建APP     数字报（�
 ...                                     作者：温怡春
 
 *** Variables ***
-${ID}                                   136                 #数字报稿件存在
-${ID0}                                  12138               #数字报稿件不存在
+${ID}                                   136                 
+${ID0}                                  12138               
 ${RESULT0}                              -1
-${VERSION} 								1581350400000
-${TITLE} 								导读
-
+${VERSION}                              1584806400000
+${TITLE}                                建言“革除滥食野生动物的陋习”
+${SITEID}                               1
 
 *** Test Cases ***
 数字报稿件存在时查看详情，接口返回数据成功
-    Get Paper Article                   ${id}
+    Get Paper Article                   ${id}               ${SITEID}
     Fapi Status Should Be Succeed
-    Should Be Equal As Strings          ${response_data.version}       
-    ... 							    ${version}
-    Should Be Equal As Strings          ${response_data.title}       
-    ... 							    ${title}
+    Fapi Request Should Be Succeed
+    Should Be Equal As Strings          ${response_data.version}                ${version}
+    Should Be Equal As Strings          ${response_data.title}                  ${title}
 
 数字报稿件不存在时查看详情，接口返回失败
-    Get Paper Article                   ${id0}
-    Fapi Status Should Be 				${result0}
+    Get Paper Article                   ${id0}              ${SITEID}
+    Fapi Status Should Be               ${result0}

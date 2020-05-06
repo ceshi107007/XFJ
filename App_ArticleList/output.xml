@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.1 (Python 3.6.5 on win32)" generated="20200416 21:02:35.904" rpa="false">
-<suite id="s1" name="ModuleView" source="D:\XFJ\API\App_ArticleList\ModuleView.robot">
+<robot generator="Robot 3.1.1 (Python 3.6.5 on win32)" generated="20200421 16:11:17.132" rpa="false">
+<suite id="s1" name="GetArticleCounts" source="D:\XFJ\API\App_ArticleList\GetArticleCounts.robot">
 <kw name="Create Session Common" library="Common" type="setup">
 <kw name="Fapi Create Session" library="FATL">
 <doc>Fapi Create Session: create a HTTP session to a server</doc>
@@ -8,755 +8,59 @@
 <arg>${APPIF_ALIAS}</arg>
 <arg>${APPIF_URL}</arg>
 </arguments>
-<msg timestamp="20200416 21:02:36.404" level="INFO">Creating Session using : alias=appif, url=https://api1.fjdaily.com/app_if, headers={'APITEST': '1'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200416 21:02:36.403" endtime="20200416 21:02:36.404"></status>
+<msg timestamp="20200421 16:11:17.697" level="INFO">Creating Session using : alias=appif, url=https://api1.fjdaily.com/app_if, headers={'APITEST': '1'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200421 16:11:17.697" endtime="20200421 16:11:17.697"></status>
 </kw>
-<status status="PASS" starttime="20200416 21:02:36.402" endtime="20200416 21:02:36.405"></status>
+<status status="PASS" starttime="20200421 16:11:17.696" endtime="20200421 16:11:17.698"></status>
 </kw>
-<test id="s1-t1" name="输入的自定义推荐模块存在时,接口返回推荐列表数据">
-<kw name="Get Module View" library="ModuleViewCommon">
-<doc>入参参数只填写必填参数</doc>
-<kw name="Fapi Params Set" library="FATL">
-<doc>Adds the given ``key_value_pairs`` and ``items`` to HTTP request parameters.</doc>
-<arguments>
-<arg>id</arg>
-<arg>${id}</arg>
-<arg>curVersions</arg>
-<arg>${CURVERSIONS}</arg>
-</arguments>
-<status status="PASS" starttime="20200416 21:02:36.409" endtime="20200416 21:02:36.409"></status>
-</kw>
-<kw name="Fapi Get" library="FATL">
-<doc>Send a GET request on the session object found using the
-given `alias`</doc>
-<arguments>
-<arg>${APPIF_ALIAS}</arg>
-<arg>${MODULE_VIEW_URL}</arg>
-</arguments>
-<msg timestamp="20200416 21:02:36.714" level="INFO">Get Request using : alias=appif, uri=/moduleView, headers={'APITEST': '1'} json=None</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">JSON string is : {</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">  "status": 0,</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">  "message": "success",</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">  "data": {</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">    "type": 10,</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">    "list": [</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">      {</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "fileId": 1814,</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "markLocked": false,</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "version": 1586760547000,</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "isRel": 0,</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "realPubTime": "2020-04-13 14:49:07.0",</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "title": "专题稿件000012",</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "textTitle": "专题稿件000012",</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "attAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "textAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "arthorID": 32,</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "arthorName": "",</msg>
-<msg timestamp="20200416 21:02:36.717" level="INFO">        "reporter": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "publishtime": "2020-04-09 15:24:25.0",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "articleType": 3,</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "tag": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "trade": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "tradeID": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "colName": "首页~专题",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "columnCasName": "首页~专题",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "colID": 18,</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "colIcon": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "mark": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "source": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "sourceUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "multimediaLink": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "shareUrl": "https://img1.fjdaily.com/app/content/2020-04/09/content_1814.html",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "url": "",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "urlPad": "https://img1.fjdaily.com/app/content/2020-04/09/content_1814.html",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "isBigPic": 0,</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "bigPic": 0,</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "isExclusive": 0,</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "contentUrl": "https://img1.fjdaily.com/app/content/2020-04/09/content_1814.html",</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "linkID": 59,</msg>
-<msg timestamp="20200416 21:02:36.718" level="INFO">        "linkType": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "linkName": "专题库~福建美食",</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "countClick": 5468,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "countClickInitial": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "countClickReal": 107,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "countClickFake": 5361,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "countShareClick": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "rssID": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "rss": "",</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "rssType": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "discussClosed": "0",</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "countDiscuss": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "countPraise": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "countShare": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "extGroupID": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "picType": 1,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "listType": 2,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "picFullScreen": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "titleDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "pubTimeDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "shareClosed": 0,</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "listTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.719" level="INFO">        "praiseType": 0,</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">        "liveType": 0,</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">        "liveStatus": 0,</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">        "config": {</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">          "appBanner": "图片存储;xy/202003/30/3dc5bb5f-8cb3-4003-859b-a89f1a2d7a59.jpg",</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">          "videos": [],</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">          "users": [],</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">          "appBannerUrl": "https://img1.fjdaily.com/nis-pic/xy/202003/30/3dc5bb5f-8cb3-4003-859b-a89f1a2d7a59.jpg"</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">        },</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">        "liveContent": "直播预告",</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">        "liveStartTime": "2020-04-07 00:00:00.0",</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">        "related": [</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">          {</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">            "relId": 1938,</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">            "fileId": 1938,</msg>
-<msg timestamp="20200416 21:02:36.720" level="INFO">            "title": "视频稿件-测试评论",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "textTitle": "视频稿件-测试评论",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "publishtime": "2020-04-13 14:15:59.0",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "source": "",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "sourceID": 0,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "picType": 2,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "picB": "https://img1.fjdaily.com/app/images/2020-04/13/t1_(0X159X313X335)32309e70-0ea0-492e-a254-69548b77c4a5copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "picM": "",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "picS": "",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "linkID": 0,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "countDiscuss": 0,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "countPraise": 3,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "countShare": 0,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "countClick": 2499,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "countClickInitial": 0,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "articleType": 2,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "vTime": "",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "relUrl": "https://img1.fjdaily.com/app/content/2020-04/13/content_1938.html",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "contentUrl": "https://api1.fjdaily.com/app_if/getArticleContent?articleId=1938",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "columnID": 80,</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "columnIcon ": "",</msg>
-<msg timestamp="20200416 21:02:36.721" level="INFO">            "columnName": "yll测试栏目",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "columnRssCount ": 0,</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "markLocked": false,</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "version": 1586758559000,</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "isRel": 0,</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "realPubTime": "2020-04-13 14:15:59.0",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "attAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "textAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "arthorID": 32,</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "arthorName": "测试员",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "reporter": "",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "tag": "",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "trade": "",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "tradeID": "",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "colName": "首页~yll测试栏目",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "columnCasName": "首页~yll测试栏目",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "colID": 80,</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "colIcon": "",</msg>
-<msg timestamp="20200416 21:02:36.722" level="INFO">            "mark": "",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "sourceUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "multimediaLink": "",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "shareUrl": "https://img1.fjdaily.com/app/content/2020-04/13/content_1938.html",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "url": "",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "urlPad": "https://img1.fjdaily.com/app/content/2020-04/13/content_1938.html",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "isBigPic": 1,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "bigPic": 1,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "picRatio": "412:230",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "isExclusive": 0,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "linkType": 0,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "linkName": "",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "countClickReal": 12,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "countClickFake": 2487,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "countShareClick": 0,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "rssID": 0,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "rss": "",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "rssType": 0,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "discussClosed": "0",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "extGroupID": 0,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "xyAccountID": 49,</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "xyAccount": "yll3",</msg>
-<msg timestamp="20200416 21:02:36.723" level="INFO">            "xyAccountIcon": "",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "xyDescription": "",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "listType": 0,</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "picFullScreen": 0,</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "titleDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "pubTimeDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "shareClosed": 0,</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "listTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "praiseType": 0,</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "isrecommend": 0,</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "subTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "leadTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "picurl": "图片存储;xy/202004/13/t1_(0X159X313X335)32309e70-0ea0-492e-a254-69548b77c4a5copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "ext_sharepic": "图片存储;xy/202004/13/t1_(0X159X313X335)32309e70-0ea0-492e-a254-69548b77c4a5copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "keylist": "",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "sectionids": "80",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "newstype": 2,</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "collectcount": 0,</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "edittername": "尹利利",</msg>
-<msg timestamp="20200416 21:02:36.724" level="INFO">            "iorder": "-37240141.5001938000",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "picauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "picauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "videoauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "videoauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "sharePicUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "shareTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "shareContent": "",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "pic_list": [],</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "pic_list_title": [</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/t1_(0X159X313X335)32309e70-0ea0-492e-a254-69548b77c4a5copy.jpg"</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            ],</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "emojiID": "",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "copyright": "0",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "videoUrl": "https://junshi-cloud-clip-oss.oss-cn-hangzhou.aliyuncs.com/common/custom/20200326/fafce741-743a-43e9-9e68-786de0dba2cf.mp4",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "duration": 0,</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "size": 0,</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "videoStyle": 0,</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "picBig": "https://img1.fjdaily.com/app/images/2020-04/13/t1_(0X159X313X335)32309e70-0ea0-492e-a254-69548b77c4a5copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "pic": [],</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">            "picCount": "0"</msg>
-<msg timestamp="20200416 21:02:36.725" level="INFO">          },</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">          {</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "relId": 1937,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "fileId": 1937,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "title": "组图稿件测试评论信息",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "textTitle": "组图稿件测试评论信息",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "publishtime": "2020-04-13 14:15:21.0",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "source": "",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "sourceID": 0,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "picType": 2,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "picB": "https://img1.fjdaily.com/app/images/2020-04/13/t1_(2X38X328X221)8cd0d86c-dac0-4363-ae14-c049c89ae9dfcopy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "picM": "",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "picS": "",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "linkID": 0,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "countDiscuss": 0,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "countPraise": 0,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "countShare": 0,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "countClick": 280,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "countClickInitial": 0,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "articleType": 1,</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "picCount": "7",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "vTime": "",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "relUrl": "https://img1.fjdaily.com/app/content/2020-04/13/content_1937.html",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "contentUrl": "https://api1.fjdaily.com/app_if/getArticleContent?articleId=1937",</msg>
-<msg timestamp="20200416 21:02:36.726" level="INFO">            "columnID": 80,</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "columnIcon ": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "columnName": "yll测试栏目",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "columnRssCount ": 0,</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "markLocked": false,</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "version": 1586758584000,</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "isRel": 0,</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "realPubTime": "2020-04-13 14:16:24.0",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "attAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "textAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "arthorID": 32,</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "arthorName": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "reporter": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "tag": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "trade": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "tradeID": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "colName": "首页~yll测试栏目",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "columnCasName": "首页~yll测试栏目",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "colID": 80,</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "colIcon": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "mark": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "sourceUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "multimediaLink": "",</msg>
-<msg timestamp="20200416 21:02:36.727" level="INFO">            "shareUrl": "https://img1.fjdaily.com/app/content/2020-04/13/content_1937.html",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "url": "",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "urlPad": "https://img1.fjdaily.com/app/content/2020-04/13/content_1937.html",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "isBigPic": 1,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "bigPic": 1,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "picRatio": "429:240",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "isExclusive": 0,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "linkType": 0,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "linkName": "",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "countClickReal": 6,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "countClickFake": 274,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "countShareClick": 0,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "rssID": 0,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "rss": "",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "rssType": 0,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "discussClosed": "0",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "extGroupID": 0,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "xyAccountID": 49,</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "xyAccount": "yll3",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "xyAccountIcon": "",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "xyDescription": "",</msg>
-<msg timestamp="20200416 21:02:36.728" level="INFO">            "listType": 0,</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "picFullScreen": 0,</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "titleDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "pubTimeDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "shareClosed": 1,</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "listTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "praiseType": 0,</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "isrecommend": 0,</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "subTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "leadTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "picurl": "图片存储;xy/202004/13/t1_(2X38X328X221)8cd0d86c-dac0-4363-ae14-c049c89ae9dfcopy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "ext_sharepic": "图片存储;xy/202004/13/t1_(2X38X328X221)8cd0d86c-dac0-4363-ae14-c049c89ae9dfcopy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "keylist": "",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "sectionids": "80",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "newstype": 1,</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "collectcount": 0,</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "edittername": "尹利利",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "iorder": "-37240141.5001937000",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "picauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "picauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "videoauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "videoauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "sharePicUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.729" level="INFO">            "shareTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "shareContent": "",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "pic_list": [</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/857fdcea-8eb2-4d30-8434-7b71af5cd0f4copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/a71a0c0d-78b4-4b0f-b6f1-6d4fc10811f3copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/9f44468e-a99b-4d4b-9ec8-6ec1a4f4f794copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/38c4834b-5dac-4b1e-b6f9-4f424bc27cdccopy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/17bac143-74d6-46bf-b516-10451d7b6004copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/a13e39a5-0d7d-44f1-b901-258a8a549b4acopy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/0629a475-399c-4493-aa47-e6f1ba550c10copy.jpg"</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            ],</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "pic_list_title": [</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/t1_(2X38X328X221)8cd0d86c-dac0-4363-ae14-c049c89ae9dfcopy.jpg"</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            ],</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "emojiID": "",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "copyright": "0",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "pic0": "https://img1.fjdaily.com/app/images/2020-04/13/857fdcea-8eb2-4d30-8434-7b71af5cd0f4copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "picBig": "https://img1.fjdaily.com/app/images/2020-04/13/t1_(2X38X328X221)8cd0d86c-dac0-4363-ae14-c049c89ae9dfcopy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "pic1": "https://img1.fjdaily.com/app/images/2020-04/13/a71a0c0d-78b4-4b0f-b6f1-6d4fc10811f3copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "pic2": "https://img1.fjdaily.com/app/images/2020-04/13/9f44468e-a99b-4d4b-9ec8-6ec1a4f4f794copy.jpg",</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "pic": []</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">          },</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">          {</msg>
-<msg timestamp="20200416 21:02:36.730" level="INFO">            "relId": 1940,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "fileId": 1940,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "title": "直播0413----我是重复数据",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "textTitle": "直播0413----我是重复数据",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "publishtime": "2020-04-13 14:22:08.0",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "source": "",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "sourceID": 0,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "picType": 1,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "picB": "https://img1.fjdaily.com/app/images/2020-04/13/t1_(7X112X440X356)022b6f8c-12b2-44da-a606-fcd0bdee0d66.png",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "picM": "",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "picS": "",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "linkID": 257,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "countDiscuss": 2,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "countPraise": 0,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "countShare": 3,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "countClick": 194,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "countClickInitial": 0,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "articleType": 6,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "vTime": "",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "relUrl": "257",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "contentUrl": "https://img1.fjdaily.com/amucsite/pad/index.html#/detailLive/1940/257",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "columnID": 16,</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "columnIcon ": "",</msg>
-<msg timestamp="20200416 21:02:36.731" level="INFO">            "columnName": "直播",</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "columnRssCount ": 0,</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "markLocked": false,</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "version": 1586858734000,</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "isRel": 0,</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "realPubTime": "2020-04-14 18:05:34.0",</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "attAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "textAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "arthorID": 32,</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "arthorName": "",</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "reporter": "",</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "tag": "",</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "trade": "",</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "tradeID": "",</msg>
-<msg timestamp="20200416 21:02:36.732" level="INFO">            "colName": "首页~直播",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "columnCasName": "首页~直播",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "colID": 16,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "colIcon": "",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "mark": "",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "sourceUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "multimediaLink": "",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "shareUrl": "https://img1.fjdaily.com/amucsite/pad/index.html#/detailLive/1940/257",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "url": "https://img1.fjdaily.com/amucsite/web/index.html#/detailLive/1940/257",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "urlPad": "https://img1.fjdaily.com/amucsite/pad/index.html#/detailLive/1940/257",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "isBigPic": 0,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "bigPic": 0,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "isExclusive": 0,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "linkType": 0,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "linkName": "视频直播状态测试",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "countClickReal": 26,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "countClickFake": 168,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "countShareClick": 0,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "rssID": 0,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "rss": "",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "rssType": 0,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "discussClosed": "0",</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "extGroupID": 0,</msg>
-<msg timestamp="20200416 21:02:36.733" level="INFO">            "listType": 0,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "picFullScreen": 0,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "titleDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "pubTimeDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "shareClosed": 0,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "listTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "praiseType": 0,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "isrecommend": 0,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "liveType": 1,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "liveStatus": 0,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">            "config": {</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">              "appBanner": "图片存储;xy/202004/15/9ac8c792-77d0-43f1-8334-ad18f607b445.jpg",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">              "videos": [</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                {</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "webLiveUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "appLiveUrl": "https://videos.36krcdn.com/20200414/v2_1586836218166_video_mp4_v3",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "status": "0",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "appPlaybackUrl": "https://videos.36krcdn.com/20200415/v2_1586930033329_video_mp4_v3",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "webPlaybackUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "line": "1",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "lineName": "线路1",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "type": 1,</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "streamID": "",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "webBanner": "",</msg>
-<msg timestamp="20200416 21:02:36.734" level="INFO">                  "appBanner": "图片存储;xy/202004/15/9ac8c792-77d0-43f1-8334-ad18f607b445.jpg"</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">                }</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">              ],</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">              "users": [],</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">              "appBannerUrl": "https://img1.fjdaily.com/nis-pic/xy/202004/15/9ac8c792-77d0-43f1-8334-ad18f607b445.jpg"</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            },</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "liveContent": "视频直播状态测试",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "liveStartTime": "2021-01-01 00:00:00.0",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "subTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "leadTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "picurl": "图片存储;xy/202004/13/t1_(7X112X440X356)022b6f8c-12b2-44da-a606-fcd0bdee0d66.png",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "ext_sharepic": "图片存储;xy/202004/13/t1_(7X112X440X356)022b6f8c-12b2-44da-a606-fcd0bdee0d66.png",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "keylist": "",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "sectionids": "16",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "newstype": 6,</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "collectcount": 0,</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "edittername": "尹利利",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "iorder": "-37240142.0001940000",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "picauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "picauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "videoauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "videoauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "sharePicUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.735" level="INFO">            "shareTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "shareContent": "",</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "pic_list": [],</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "pic_list_title": [</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/t1_(7X112X440X356)022b6f8c-12b2-44da-a606-fcd0bdee0d66.png"</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            ],</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "emojiID": "",</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "copyright": "0",</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "picBig": "https://img1.fjdaily.com/app/images/2020-04/13/t1_(7X112X440X356)022b6f8c-12b2-44da-a606-fcd0bdee0d66.png",</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "pic": [],</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "picCount": "0"</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">          },</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">          {</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "relId": 1933,</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "fileId": 1933,</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "title": "测试评论信息0413",</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "textTitle": "测试评论信息0413",</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "publishtime": "2020-04-13 13:38:08.0",</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "source": "",</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "sourceID": 0,</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "picType": 2,</msg>
-<msg timestamp="20200416 21:02:36.736" level="INFO">            "picB": "https://img1.fjdaily.com/app/images/2020-04/13/t1_(9X62X440X304)4f12ad1a-03e0-4763-9c9f-0d6078f6e8bc.jpg",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "picM": "",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "picS": "",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "linkID": 0,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "countDiscuss": 6,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "countPraise": 5,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "countShare": 0,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "countClick": 6853,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "countClickInitial": 0,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "articleType": 0,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "vTime": "",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "relUrl": "https://img1.fjdaily.com/app/content/2020-04/13/content_1933.html",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "contentUrl": "https://api1.fjdaily.com/app_if/getArticleContent?articleId=1933",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "columnID": 5,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "columnIcon ": "https://img1.fjdaily.com/app/resource/xy/202004/15/t2_(44X201X440X333)93576ac3-9f23-4784-9404-bac8c1fe2511.jpg",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "columnName": "头条",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "columnRssCount ": 0,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "markLocked": false,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "version": 1586767883000,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "isRel": 0,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "realPubTime": "2020-04-13 16:51:23.0",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "attAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "textAbstract": "",</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "arthorID": 32,</msg>
-<msg timestamp="20200416 21:02:36.737" level="INFO">            "arthorName": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "reporter": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "tag": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "trade": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "tradeID": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "colName": "首页~头条",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "columnCasName": "首页~头条",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "colID": 5,</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "colIcon": "https://img1.fjdaily.com/app/resource/xy/202004/15/t2_(44X201X440X333)93576ac3-9f23-4784-9404-bac8c1fe2511.jpg",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "mark": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "sourceUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "multimediaLink": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "shareUrl": "https://img1.fjdaily.com/app/content/2020-04/13/content_1933.html",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "url": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "urlPad": "https://img1.fjdaily.com/app/content/2020-04/13/content_1933.html",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "isBigPic": 1,</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "bigPic": 1,</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "picRatio": "490:275",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "isExclusive": 0,</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "linkType": 0,</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "linkName": "",</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "countClickReal": 119,</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "countClickFake": 6734,</msg>
-<msg timestamp="20200416 21:02:36.738" level="INFO">            "countShareClick": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "rssID": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "rss": "",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "rssType": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "discussClosed": "0",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "extGroupID": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "xyAccountID": 46,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "xyAccount": "y1",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "xyAccountIcon": "",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "xyDescription": "",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "listType": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "picFullScreen": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "titleDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "pubTimeDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "shareClosed": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "listTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "praiseType": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "isrecommend": 0,</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "subTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "leadTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "picurl": "图片存储;xy/202004/13/t1_(9X62X440X304)4f12ad1a-03e0-4763-9c9f-0d6078f6e8bc.jpg",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "ext_sharepic": "图片存储;xy/202004/13/t1_(9X62X440X304)4f12ad1a-03e0-4763-9c9f-0d6078f6e8bc.jpg",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "keylist": "",</msg>
-<msg timestamp="20200416 21:02:36.739" level="INFO">            "sectionids": "5;77",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "newstype": 0,</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "collectcount": 0,</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "edittername": "尹利利",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "iorder": "-37240133.7001933000",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "picauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "picauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "videoauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "videoauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "sharePicUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "shareTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "shareContent": "",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "pic_list": [],</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "pic_list_title": [</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/13/t1_(9X62X440X304)4f12ad1a-03e0-4763-9c9f-0d6078f6e8bc.jpg"</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            ],</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "emojiID": "",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "copyright": "0",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "picBig": "https://img1.fjdaily.com/app/images/2020-04/13/t1_(9X62X440X304)4f12ad1a-03e0-4763-9c9f-0d6078f6e8bc.jpg",</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "pic": [],</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "picCount": "0"</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">          },</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">          {</msg>
-<msg timestamp="20200416 21:02:36.740" level="INFO">            "relId": 1810,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "fileId": 1810,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "title": "链接稿件0001",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "textTitle": "链接稿件0001",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "publishtime": "2020-04-09 15:19:10.0",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "source": "",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "sourceID": 0,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "picType": 1,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "picB": "https://img1.fjdaily.com/app/images/2020-04/09/t2_(20X26X348X354)2532a144-4c8e-4801-bdd5-e3f24f1fa304.jpg",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "picM": "",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "picS": "",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "linkID": 0,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "countDiscuss": 1,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "countPraise": 0,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "countShare": 0,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "countClick": 443,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "countClickInitial": 0,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "articleType": 4,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "vTime": "",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "relUrl": "http://apitest.wenjuan.com/s/bIVv22",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "contentUrl": "http://apitest.wenjuan.com/s/bIVv22",</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "columnID": 80,</msg>
-<msg timestamp="20200416 21:02:36.741" level="INFO">            "columnIcon ": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "columnName": "yll测试栏目",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "columnRssCount ": 0,</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "markLocked": false,</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "version": 1586508067000,</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "isRel": 0,</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "realPubTime": "2020-04-10 16:41:07.0",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "attAbstract": "测试链接摘要",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "textAbstract": "测试链接摘要",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "arthorID": 32,</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "arthorName": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "reporter": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "tag": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "trade": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "tradeID": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "colName": "首页~yll测试栏目",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "columnCasName": "首页~yll测试栏目",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "colID": 80,</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "colIcon": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "mark": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "sourceUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "multimediaLink": "",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "shareUrl": "http://apitest.wenjuan.com/s/bIVv22",</msg>
-<msg timestamp="20200416 21:02:36.742" level="INFO">            "url": "http://apitest.wenjuan.com/s/bIVv22",</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "urlPad": "http://apitest.wenjuan.com/s/bIVv22",</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "isBigPic": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "bigPic": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "isExclusive": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "linkType": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "linkName": "",</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "countClickReal": 6,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "countClickFake": 437,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "countShareClick": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "rssID": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "rss": "",</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "rssType": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "discussClosed": "0",</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "extGroupID": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "xyAccountID": 49,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "xyAccount": "yll3",</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "xyAccountIcon": "",</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "xyDescription": "",</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "listType": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "picFullScreen": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "titleDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.743" level="INFO">            "pubTimeDisplay": 0,</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "shareClosed": 0,</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "listTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "praiseType": 0,</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "isrecommend": 0,</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "subTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "leadTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "picurl": "图片存储;xy/202004/09/t2_(20X26X348X354)2532a144-4c8e-4801-bdd5-e3f24f1fa304.jpg",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "ext_sharepic": "图片存储;xy/202004/09/t2_(20X26X348X354)2532a144-4c8e-4801-bdd5-e3f24f1fa304.jpg",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "keylist": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "sectionids": "80",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "newstype": 4,</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "collectcount": 0,</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "edittername": "尹利利",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "iorder": "-37200151.9001809950",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "picauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "picauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "videoauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "videoauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "sharePicUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "shareTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "shareContent": "",</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "pic_list": [],</msg>
-<msg timestamp="20200416 21:02:36.744" level="INFO">            "pic_list_title": [</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">              "https://img1.fjdaily.com/app/images/2020-04/09/t2_(20X26X348X354)2532a144-4c8e-4801-bdd5-e3f24f1fa304.jpg"</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">            ],</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">            "emojiID": "",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">            "copyright": "0",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">            "picBig": "https://img1.fjdaily.com/app/images/2020-04/09/t2_(20X26X348X354)2532a144-4c8e-4801-bdd5-e3f24f1fa304.jpg",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">            "pic": [],</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">            "picCount": "0"</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">          }</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        ],</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "isrecommend": 1,</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "subTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "leadTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "picurl": "图片存储;xy/202004/09/t2_(25X146X436X283)e3ac6576-380e-4643-a47b-a4c893a39a84.jpg",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "ext_sharepic": "图片存储;xy/202004/09/t2_(25X146X436X283)e3ac6576-380e-4643-a47b-a4c893a39a84.jpg",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "keylist": "",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "sectionids": "18",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "newstype": 3,</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "collectcount": 0,</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "edittername": "尹利利",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "iorder": "-37200152.4001814000",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "picauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "picauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.745" level="INFO">        "videoauthor": "",</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "videoauthorid": "",</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "sharePicUrl": "",</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "shareTitle": "",</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "shareContent": "",</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "pic_list": [],</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "pic_list_title": [</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">          "https://img1.fjdaily.com/app/images/2020-04/09/t2_(25X146X436X283)e3ac6576-380e-4643-a47b-a4c893a39a84.jpg"</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        ],</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "subColumnID": 60,</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "emojiID": "",</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "copyright": "0",</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "picBig": "https://img1.fjdaily.com/app/images/2020-04/09/t2_(25X146X436X283)e3ac6576-380e-4643-a47b-a4c893a39a84.jpg",</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "pic": [],</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">        "picCount": "0"</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">      }</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">    ]</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">  }</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">}</msg>
-<msg timestamp="20200416 21:02:36.746" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  InsecureRequestWarning)</msg>
-<status status="PASS" starttime="20200416 21:02:36.410" endtime="20200416 21:02:36.747"></status>
-</kw>
-<kw name="Fapi Data To Object" library="FATL">
-<doc>Convert Fapi response content to python object</doc>
-<assign>
-<var>${data}</var>
-</assign>
-<msg timestamp="20200416 21:02:36.748" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001C9D86BE9E8&gt;</msg>
-<status status="PASS" starttime="20200416 21:02:36.747" endtime="20200416 21:02:36.748"></status>
-</kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<arguments>
-<arg>${response_data}</arg>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20200416 21:02:36.749" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001C9D86BE9E8&gt;</msg>
-<status status="PASS" starttime="20200416 21:02:36.748" endtime="20200416 21:02:36.750"></status>
-</kw>
-<status status="PASS" starttime="20200416 21:02:36.409" endtime="20200416 21:02:36.750"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${response_data.list[0].title}</arg>
-<arg>${RESULT}</arg>
-</arguments>
-<status status="PASS" starttime="20200416 21:02:36.750" endtime="20200416 21:02:36.751"></status>
-</kw>
-<tags>
-<tag>作者：张鹏</tag>
-<tag>冒烟集-新福建App</tag>
-<tag>推荐模块内容列表接口验证（李昊）</tag>
-</tags>
-<status status="PASS" starttime="20200416 21:02:36.405" endtime="20200416 21:02:36.751" critical="yes"></status>
-</test>
-<test id="s1-t2" name="输入的自定义推荐模块不存在时，接口返回异常">
-<kw name="Get Module View" library="ModuleViewCommon">
-<doc>入参参数只填写必填参数</doc>
+<test id="s1-t1" name="当输入的稿件id存在时，接口返回改稿件的实时点击数">
+<kw name="Get Article Counts" library="Article_Common">
+<doc>获取列表页稿件的阅读数接口</doc>
 <arguments>
 <arg>${ID0}</arg>
 </arguments>
 <kw name="Fapi Params Set" library="FATL">
 <doc>Adds the given ``key_value_pairs`` and ``items`` to HTTP request parameters.</doc>
 <arguments>
-<arg>id</arg>
-<arg>${id}</arg>
+<arg>articleId</arg>
+<arg>${articleid}</arg>
+<arg>siteId</arg>
+<arg>${siteid}</arg>
 <arg>curVersions</arg>
 <arg>${CURVERSIONS}</arg>
 </arguments>
-<status status="PASS" starttime="20200416 21:02:36.757" endtime="20200416 21:02:36.757"></status>
+<status status="PASS" starttime="20200421 16:11:17.702" endtime="20200421 16:11:17.703"></status>
 </kw>
 <kw name="Fapi Get" library="FATL">
 <doc>Send a GET request on the session object found using the
 given `alias`</doc>
 <arguments>
 <arg>${APPIF_ALIAS}</arg>
-<arg>${MODULE_VIEW_URL}</arg>
+<arg>${GETARTICLECOUNTS_URI}</arg>
 </arguments>
-<msg timestamp="20200416 21:02:37.108" level="INFO">Get Request using : alias=appif, uri=/moduleView, headers={'APITEST': '1'} json=None</msg>
-<msg timestamp="20200416 21:02:37.108" level="INFO">JSON string is : {</msg>
-<msg timestamp="20200416 21:02:37.108" level="INFO">  "status": -1,</msg>
-<msg timestamp="20200416 21:02:37.108" level="INFO">  "message": "Your server has down or target user not exist !",</msg>
-<msg timestamp="20200416 21:02:37.108" level="INFO">  "data": {}</msg>
-<msg timestamp="20200416 21:02:37.108" level="INFO">}</msg>
-<msg timestamp="20200416 21:02:37.108" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg timestamp="20200421 16:11:17.995" level="INFO">Get Request using : alias=appif, uri=/getArticleCounts, headers={'APITEST': '1'} json=None</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">JSON string is : {</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">  "status": 0,</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">  "message": "success",</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">  "data": {</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">    "fileId": 2005,</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">    "countClick": 1514,</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">    "countPraise": 2,</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">    "countShare": 15,</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">    "countDiscuss": 8</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">  }</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">}</msg>
+<msg timestamp="20200421 16:11:17.996" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecureRequestWarning)</msg>
-<status status="PASS" starttime="20200416 21:02:36.757" endtime="20200416 21:02:37.109"></status>
+<status status="PASS" starttime="20200421 16:11:17.703" endtime="20200421 16:11:17.997"></status>
 </kw>
 <kw name="Fapi Data To Object" library="FATL">
 <doc>Convert Fapi response content to python object</doc>
 <assign>
 <var>${data}</var>
 </assign>
-<msg timestamp="20200416 21:02:37.109" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001C9D86836D8&gt;</msg>
-<status status="PASS" starttime="20200416 21:02:37.109" endtime="20200416 21:02:37.109"></status>
+<msg timestamp="20200421 16:11:17.997" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001F377085E10&gt;</msg>
+<status status="PASS" starttime="20200421 16:11:17.997" endtime="20200421 16:11:17.997"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
@@ -764,33 +68,109 @@ given `alias`</doc>
 <arg>${response_data}</arg>
 <arg>${data}</arg>
 </arguments>
-<msg timestamp="20200416 21:02:37.110" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001C9D86836D8&gt;</msg>
-<status status="PASS" starttime="20200416 21:02:37.109" endtime="20200416 21:02:37.110"></status>
+<msg timestamp="20200421 16:11:17.998" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001F377085E10&gt;</msg>
+<status status="PASS" starttime="20200421 16:11:17.997" endtime="20200421 16:11:17.999"></status>
 </kw>
-<status status="PASS" starttime="20200416 21:02:36.756" endtime="20200416 21:02:37.110"></status>
+<status status="PASS" starttime="20200421 16:11:17.702" endtime="20200421 16:11:17.999"></status>
 </kw>
-<kw name="Fapi Status Should Be" library="FATL">
-<doc>Fapi response status code should be equal to the `expectedCode`</doc>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
-<arg>${RESULT0}</arg>
+<arg>${response_data.fileId}</arg>
+<arg>${ID0}</arg>
 </arguments>
-<msg timestamp="20200416 21:02:37.111" level="INFO">Actual status code is: -1</msg>
-<status status="PASS" starttime="20200416 21:02:37.111" endtime="20200416 21:02:37.111"></status>
+<msg timestamp="20200421 16:11:18.000" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200421 16:11:17.999" endtime="20200421 16:11:18.000"></status>
 </kw>
 <tags>
 <tag>作者：张鹏</tag>
-<tag>冒烟集-新福建App</tag>
-<tag>推荐模块内容列表接口验证（李昊）</tag>
+<tag>冒烟集-新福建APP</tag>
+<tag>栏目接口/列表页稿件阅读数接口（李昊）</tag>
 </tags>
-<status status="PASS" starttime="20200416 21:02:36.753" endtime="20200416 21:02:37.111" critical="yes"></status>
+<status status="PASS" starttime="20200421 16:11:17.698" endtime="20200421 16:11:18.001" critical="yes"></status>
+</test>
+<test id="s1-t2" name="当输入的稿件id存在时，接口返回改稿件的实时点击数">
+<kw name="Get Article Counts" library="Article_Common">
+<doc>获取列表页稿件的阅读数接口</doc>
+<arguments>
+<arg>${ID1}</arg>
+</arguments>
+<kw name="Fapi Params Set" library="FATL">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to HTTP request parameters.</doc>
+<arguments>
+<arg>articleId</arg>
+<arg>${articleid}</arg>
+<arg>siteId</arg>
+<arg>${siteid}</arg>
+<arg>curVersions</arg>
+<arg>${CURVERSIONS}</arg>
+</arguments>
+<status status="PASS" starttime="20200421 16:11:18.011" endtime="20200421 16:11:18.012"></status>
+</kw>
+<kw name="Fapi Get" library="FATL">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${APPIF_ALIAS}</arg>
+<arg>${GETARTICLECOUNTS_URI}</arg>
+</arguments>
+<msg timestamp="20200421 16:11:18.081" level="INFO">Get Request using : alias=appif, uri=/getArticleCounts, headers={'APITEST': '1'} json=None</msg>
+<msg timestamp="20200421 16:11:18.081" level="INFO">JSON string is : {</msg>
+<msg timestamp="20200421 16:11:18.081" level="INFO">  "status": 0,</msg>
+<msg timestamp="20200421 16:11:18.082" level="INFO">  "message": "success",</msg>
+<msg timestamp="20200421 16:11:18.082" level="INFO">  "data": {</msg>
+<msg timestamp="20200421 16:11:18.082" level="INFO">    "success": false,</msg>
+<msg timestamp="20200421 16:11:18.082" level="INFO">    "errorInfo": "找不到相关稿件",</msg>
+<msg timestamp="20200421 16:11:18.082" level="INFO">    "results": []</msg>
+<msg timestamp="20200421 16:11:18.082" level="INFO">  }</msg>
+<msg timestamp="20200421 16:11:18.082" level="INFO">}</msg>
+<msg timestamp="20200421 16:11:18.082" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<status status="PASS" starttime="20200421 16:11:18.012" endtime="20200421 16:11:18.082"></status>
+</kw>
+<kw name="Fapi Data To Object" library="FATL">
+<doc>Convert Fapi response content to python object</doc>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20200421 16:11:18.083" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001F375C76C50&gt;</msg>
+<status status="PASS" starttime="20200421 16:11:18.082" endtime="20200421 16:11:18.083"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${response_data}</arg>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200421 16:11:18.084" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001F375C76C50&gt;</msg>
+<status status="PASS" starttime="20200421 16:11:18.083" endtime="20200421 16:11:18.084"></status>
+</kw>
+<status status="PASS" starttime="20200421 16:11:18.010" endtime="20200421 16:11:18.084"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response_data.errorInfo}</arg>
+<arg>${RESULT}</arg>
+</arguments>
+<status status="PASS" starttime="20200421 16:11:18.084" endtime="20200421 16:11:18.085"></status>
+</kw>
+<tags>
+<tag>作者：张鹏</tag>
+<tag>冒烟集-新福建APP</tag>
+<tag>栏目接口/列表页稿件阅读数接口（李昊）</tag>
+</tags>
+<status status="PASS" starttime="20200421 16:11:18.003" endtime="20200421 16:11:18.086" critical="yes"></status>
 </test>
 <kw name="Fapi Delete All Sessions" library="FATL" type="teardown">
 <doc>Removes all the session objects</doc>
-<msg timestamp="20200416 21:02:37.114" level="INFO">Delete All Sessions</msg>
-<status status="PASS" starttime="20200416 21:02:37.113" endtime="20200416 21:02:37.114"></status>
+<msg timestamp="20200421 16:11:18.089" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20200421 16:11:18.088" endtime="20200421 16:11:18.089"></status>
 </kw>
-<doc>此文档用于验证推荐模块内容列表接口</doc>
-<status status="PASS" starttime="20200416 21:02:35.907" endtime="20200416 21:02:37.114"></status>
+<doc>该文档是获取栏目模块接口用例文档</doc>
+<status status="PASS" starttime="20200421 16:11:17.135" endtime="20200421 16:11:18.089"></status>
 </suite>
 <statistics>
 <total>
@@ -799,13 +179,16 @@ given `alias`</doc>
 </total>
 <tag>
 <stat pass="2" fail="0">作者：张鹏</stat>
-<stat pass="2" fail="0">冒烟集-新福建App</stat>
-<stat pass="2" fail="0">推荐模块内容列表接口验证（李昊）</stat>
+<stat pass="2" fail="0">冒烟集-新福建APP</stat>
+<stat pass="2" fail="0">栏目接口/列表页稿件阅读数接口（李昊）</stat>
 </tag>
 <suite>
-<stat pass="2" fail="0" id="s1" name="ModuleView">ModuleView</stat>
+<stat pass="2" fail="0" id="s1" name="GetArticleCounts">GetArticleCounts</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20200421 16:11:17.173" level="ERROR">Error in file 'D:\XFJ\API\App_ArticleList\Article_Common.robot': Non-existing setting 'Force Tags'.</msg>
+<msg timestamp="20200421 16:11:17.174" level="ERROR">Error in file 'D:\XFJ\API\App_ArticleList\Article_Common.robot': Non-existing setting '...'.</msg>
+<msg timestamp="20200421 16:11:18.002" level="WARN">Multiple test cases with name '当输入的稿件id存在时，接口返回改稿件的实时点击数' executed in test suite 'GetArticleCounts'.</msg>
 </errors>
 </robot>

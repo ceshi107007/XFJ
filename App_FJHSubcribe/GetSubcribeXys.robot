@@ -8,11 +8,11 @@ Suite Teardown                          Fapi Delete All Sessions
 
 
 *** Variables ***
-${KEY}                                  福建
+${KEY}                                  福建发布了
 ${KEY1}                                 ${EMPTY}
-${KEY2}                                 北京发布
-${RESULT}                               北京发布
-${LEN}                                  0
+${KEY2}                                 福建
+${RESULT}                               福建
+${LEN_LIST}                                  0
 
 *** Keywords ***
 
@@ -20,14 +20,11 @@ ${LEN}                                  0
 *** Test Case ***
 输入的关键字未匹配到数据，接口不返回数据
     Get Subcribe Xys                    ${KEY}
-    Fapi Request Should Be Succeed
-    Fapi Status Should Be Succeed
+    Fapi Data Field Count Should Be     ${response_data.list}                   ${LEN_LIST}
 
-输入的关键字为空时，接口返回所有订阅的数据（仅客户端做了限制）
+输入的关键字为空时，接口不返回数据
     Get Subcribe Xys                    ${KEY1}
-#    Should Be Equal As Strings          ${response_data.list[0].topic}          ${RESULT}
-    Fapi Request Should Be Succeed
-    Fapi Status Should Be Succeed
+    Fapi Data Field Count Should Be     ${response_data.list}                   ${LEN_LIST}
 
 输入的关键字匹配到数据，接口返回所有订阅的数据
     Get Subcribe Xys                    ${KEY2}
