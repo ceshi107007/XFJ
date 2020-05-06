@@ -9,7 +9,7 @@ Suite Teardown                          Fapi Delete All Sessions
 *** Variables ***
 ${REGIONID0}                            195                 #地区分类下有人物信息
 ${REGIONID1}                            281                 #地区分类下无人物信息
-${RESULT}                               于伟国
+${RESULT}                               王宁
 ${STATUS}                               -1
 
 *** Keywords ***

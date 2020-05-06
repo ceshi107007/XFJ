@@ -19,7 +19,7 @@ ${ARTICLEID}                            346
 *** Keywords ***
 
 *** Test Case ***
-输入已收藏数据的USERID,接口返回第一页收藏数据
+输入已收藏数据的USERID,接口返回第一页收藏数据（动态数据无法精确校验）
     My Fav                              ${USERID}
     ...                                 ${PAGE}
     Fapi Status Should Be Succeed
@@ -29,7 +29,7 @@ ${ARTICLEID}                            346
     My Fav                              ${USERID}
     ...                                 ${PAGE}
     Fapi Status Should Be Succeed
-    Should Be Equal As Strings          ${response_data.list[0].articleID}     ${ARTICLEID}
+#    Should Be Equal As Strings          ${response_data.list[0].articleID}     ${ARTICLEID}
 
 输入已收藏数据的USERID,翻页数不存在接口返回数据为空
     My Fav                              ${USERID}

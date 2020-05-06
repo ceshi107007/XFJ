@@ -3,7 +3,7 @@ Documentation                           此文档用是推荐模块内容列表�
 Resource                                ../Common/Common.robot
 *** Variables ***
 ${MODULE_VIEW_URL}                      /moduleView
-${ID}                                   23
+${ID}                                   126
 
 *** Keywords ***
 Get Module View

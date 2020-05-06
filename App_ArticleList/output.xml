@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.1 (Python 3.6.5 on win32)" generated="20200421 16:11:17.132" rpa="false">
-<suite id="s1" name="GetArticleCounts" source="D:\XFJ\API\App_ArticleList\GetArticleCounts.robot">
+<robot generator="Robot 3.1.1 (Python 3.6.5 on win32)" generated="20200506 16:38:56.947" rpa="false">
+<suite id="s1" name="ModuleView" source="D:\XFJ\API\App_ArticleList\ModuleView.robot">
 <kw name="Create Session Common" library="Common" type="setup">
 <kw name="Fapi Create Session" library="FATL">
 <doc>Fapi Create Session: create a HTTP session to a server</doc>
@@ -8,59 +8,97 @@
 <arg>${APPIF_ALIAS}</arg>
 <arg>${APPIF_URL}</arg>
 </arguments>
-<msg timestamp="20200421 16:11:17.697" level="INFO">Creating Session using : alias=appif, url=https://api1.fjdaily.com/app_if, headers={'APITEST': '1'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200421 16:11:17.697" endtime="20200421 16:11:17.697"></status>
+<msg timestamp="20200506 16:38:57.498" level="INFO">Creating Session using : alias=appif, url=https://api1.fjdaily.com/app_if, headers={'APITEST': '1'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200506 16:38:57.498" endtime="20200506 16:38:57.499"></status>
 </kw>
-<status status="PASS" starttime="20200421 16:11:17.696" endtime="20200421 16:11:17.698"></status>
+<status status="PASS" starttime="20200506 16:38:57.497" endtime="20200506 16:38:57.499"></status>
 </kw>
-<test id="s1-t1" name="当输入的稿件id存在时，接口返回改稿件的实时点击数">
-<kw name="Get Article Counts" library="Article_Common">
-<doc>获取列表页稿件的阅读数接口</doc>
-<arguments>
-<arg>${ID0}</arg>
-</arguments>
+<test id="s1-t1" name="输入的自定义推荐模块存在时,接口返回推荐列表数据">
+<kw name="Get Module View" library="ModuleViewCommon">
+<doc>入参参数只填写必填参数</doc>
 <kw name="Fapi Params Set" library="FATL">
 <doc>Adds the given ``key_value_pairs`` and ``items`` to HTTP request parameters.</doc>
 <arguments>
-<arg>articleId</arg>
-<arg>${articleid}</arg>
-<arg>siteId</arg>
-<arg>${siteid}</arg>
+<arg>id</arg>
+<arg>${id}</arg>
 <arg>curVersions</arg>
 <arg>${CURVERSIONS}</arg>
 </arguments>
-<status status="PASS" starttime="20200421 16:11:17.702" endtime="20200421 16:11:17.703"></status>
+<status status="PASS" starttime="20200506 16:38:57.505" endtime="20200506 16:38:57.505"></status>
 </kw>
 <kw name="Fapi Get" library="FATL">
 <doc>Send a GET request on the session object found using the
 given `alias`</doc>
 <arguments>
 <arg>${APPIF_ALIAS}</arg>
-<arg>${GETARTICLECOUNTS_URI}</arg>
+<arg>${MODULE_VIEW_URL}</arg>
 </arguments>
-<msg timestamp="20200421 16:11:17.995" level="INFO">Get Request using : alias=appif, uri=/getArticleCounts, headers={'APITEST': '1'} json=None</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">JSON string is : {</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">  "status": 0,</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">  "message": "success",</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">  "data": {</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">    "fileId": 2005,</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">    "countClick": 1514,</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">    "countPraise": 2,</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">    "countShare": 15,</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">    "countDiscuss": 8</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">  }</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">}</msg>
-<msg timestamp="20200421 16:11:17.996" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg timestamp="20200506 16:38:57.727" level="INFO">Get Request using : alias=appif, uri=/moduleView, headers={'APITEST': '1'} json=None</msg>
+<msg timestamp="20200506 16:38:57.727" level="INFO">JSON string is : {</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">  "status": 0,</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">  "message": "success",</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">  "data": {</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">    "type": 7,</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">    "list": [</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">      {</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "cmiName": "于伟国",</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "duty": "中共十九届中央委员，福建省委书记，省人大常委会主任，福建省军区党委第一书记",</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "description": "于伟国，男，汉族，1955年10月生，山东威海人（江苏太仓出生），1975年12月加入中国共产党，1973年01月参加工作，中国人民大学中国语言文学系中国文学专业毕业，大学学历。中国人民大学",</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "url": "https://img1.fjdaily.com/app/resource/202003/31/f5240097-7ca8-4d73-82fc-ec19a9dfd1b5.jpg",</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "columnID": 124,</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "groupID": 0,</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "id": 18</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">      },</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">      {</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "cmiName": "唐登杰",</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "duty": "现任中共十九届中央候补委员，福建省委副书记，福建省人民政府省长、党组书记。",</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "description": "唐登杰，男，汉族，1964年6月出生，江苏建湖人（上海出生），1991年8月加入中国共产党，1986年7月参加工作，在职研究生学历，工商管理硕士，高级工程师。",</msg>
+<msg timestamp="20200506 16:38:57.728" level="INFO">        "url": "https://img1.fjdaily.com/app/resource/202004/09/86b5091b-94eb-421e-880f-301998611be2.jpg",</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "columnID": 125,</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "groupID": 0,</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "id": 41</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">      },</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">      {</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "cmiName": "田湘利",</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "duty": "省政府副省长、党组成员，省公安厅党委书记、厅长",</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "description": "省政府副省长、党组成员，省公安厅党委书记、厅长",</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "url": "https://img1.fjdaily.com/app/resource/202004/09/ca966da9-9a3c-48ac-8c6c-1cfd39e8c45e.jpg",</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "columnID": 0,</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "groupID": 0,</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "id": 44</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">      },</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">      {</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "cmiName": "李德金",</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "duty": "省政府副省长、党组成员",</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "description": "省政府副省长、党组成员",</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "url": "https://img1.fjdaily.com/app/resource/202004/09/fa1dff1b-e1bc-41fd-9621-49b3736a63e6.jpg",</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "columnID": 0,</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "groupID": 0,</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">        "id": 42</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">      },</msg>
+<msg timestamp="20200506 16:38:57.729" level="INFO">      {</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">        "cmiName": "王宁",</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">        "duty": "福建省委副书记、福州市委书记",</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">        "description": "福建省委副书记、福州市委书记",</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">        "url": "https://img1.fjdaily.com/app/resource/202004/03/ae3c346b-1391-4eeb-b84f-8e4cb0ad2e58.jpg",</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">        "columnID": 127,</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">        "groupID": 0,</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">        "id": 32</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">      }</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">    ]</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">  }</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">}</msg>
+<msg timestamp="20200506 16:38:57.730" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecureRequestWarning)</msg>
-<status status="PASS" starttime="20200421 16:11:17.703" endtime="20200421 16:11:17.997"></status>
+<status status="PASS" starttime="20200506 16:38:57.506" endtime="20200506 16:38:57.731"></status>
 </kw>
 <kw name="Fapi Data To Object" library="FATL">
 <doc>Convert Fapi response content to python object</doc>
 <assign>
 <var>${data}</var>
 </assign>
-<msg timestamp="20200421 16:11:17.997" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001F377085E10&gt;</msg>
-<status status="PASS" starttime="20200421 16:11:17.997" endtime="20200421 16:11:17.997"></status>
+<msg timestamp="20200506 16:38:57.731" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001957A063C18&gt;</msg>
+<status status="PASS" starttime="20200506 16:38:57.731" endtime="20200506 16:38:57.732"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
@@ -68,109 +106,100 @@ given `alias`</doc>
 <arg>${response_data}</arg>
 <arg>${data}</arg>
 </arguments>
-<msg timestamp="20200421 16:11:17.998" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001F377085E10&gt;</msg>
-<status status="PASS" starttime="20200421 16:11:17.997" endtime="20200421 16:11:17.999"></status>
+<msg timestamp="20200506 16:38:57.733" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001957A063C18&gt;</msg>
+<status status="PASS" starttime="20200506 16:38:57.732" endtime="20200506 16:38:57.733"></status>
 </kw>
-<status status="PASS" starttime="20200421 16:11:17.702" endtime="20200421 16:11:17.999"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${response_data.fileId}</arg>
-<arg>${ID0}</arg>
-</arguments>
-<msg timestamp="20200421 16:11:18.000" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20200421 16:11:17.999" endtime="20200421 16:11:18.000"></status>
-</kw>
-<tags>
-<tag>作者：张鹏</tag>
-<tag>冒烟集-新福建APP</tag>
-<tag>栏目接口/列表页稿件阅读数接口（李昊）</tag>
-</tags>
-<status status="PASS" starttime="20200421 16:11:17.698" endtime="20200421 16:11:18.001" critical="yes"></status>
-</test>
-<test id="s1-t2" name="当输入的稿件id存在时，接口返回改稿件的实时点击数">
-<kw name="Get Article Counts" library="Article_Common">
-<doc>获取列表页稿件的阅读数接口</doc>
-<arguments>
-<arg>${ID1}</arg>
-</arguments>
-<kw name="Fapi Params Set" library="FATL">
-<doc>Adds the given ``key_value_pairs`` and ``items`` to HTTP request parameters.</doc>
-<arguments>
-<arg>articleId</arg>
-<arg>${articleid}</arg>
-<arg>siteId</arg>
-<arg>${siteid}</arg>
-<arg>curVersions</arg>
-<arg>${CURVERSIONS}</arg>
-</arguments>
-<status status="PASS" starttime="20200421 16:11:18.011" endtime="20200421 16:11:18.012"></status>
-</kw>
-<kw name="Fapi Get" library="FATL">
-<doc>Send a GET request on the session object found using the
-given `alias`</doc>
-<arguments>
-<arg>${APPIF_ALIAS}</arg>
-<arg>${GETARTICLECOUNTS_URI}</arg>
-</arguments>
-<msg timestamp="20200421 16:11:18.081" level="INFO">Get Request using : alias=appif, uri=/getArticleCounts, headers={'APITEST': '1'} json=None</msg>
-<msg timestamp="20200421 16:11:18.081" level="INFO">JSON string is : {</msg>
-<msg timestamp="20200421 16:11:18.081" level="INFO">  "status": 0,</msg>
-<msg timestamp="20200421 16:11:18.082" level="INFO">  "message": "success",</msg>
-<msg timestamp="20200421 16:11:18.082" level="INFO">  "data": {</msg>
-<msg timestamp="20200421 16:11:18.082" level="INFO">    "success": false,</msg>
-<msg timestamp="20200421 16:11:18.082" level="INFO">    "errorInfo": "找不到相关稿件",</msg>
-<msg timestamp="20200421 16:11:18.082" level="INFO">    "results": []</msg>
-<msg timestamp="20200421 16:11:18.082" level="INFO">  }</msg>
-<msg timestamp="20200421 16:11:18.082" level="INFO">}</msg>
-<msg timestamp="20200421 16:11:18.082" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  InsecureRequestWarning)</msg>
-<status status="PASS" starttime="20200421 16:11:18.012" endtime="20200421 16:11:18.082"></status>
-</kw>
-<kw name="Fapi Data To Object" library="FATL">
-<doc>Convert Fapi response content to python object</doc>
-<assign>
-<var>${data}</var>
-</assign>
-<msg timestamp="20200421 16:11:18.083" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001F375C76C50&gt;</msg>
-<status status="PASS" starttime="20200421 16:11:18.082" endtime="20200421 16:11:18.083"></status>
-</kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<arguments>
-<arg>${response_data}</arg>
-<arg>${data}</arg>
-</arguments>
-<msg timestamp="20200421 16:11:18.084" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001F375C76C50&gt;</msg>
-<status status="PASS" starttime="20200421 16:11:18.083" endtime="20200421 16:11:18.084"></status>
-</kw>
-<status status="PASS" starttime="20200421 16:11:18.010" endtime="20200421 16:11:18.084"></status>
+<status status="PASS" starttime="20200506 16:38:57.504" endtime="20200506 16:38:57.733"></status>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
-<arg>${response_data.errorInfo}</arg>
+<arg>${response_data.list[0].cmiName}</arg>
 <arg>${RESULT}</arg>
 </arguments>
-<status status="PASS" starttime="20200421 16:11:18.084" endtime="20200421 16:11:18.085"></status>
+<status status="PASS" starttime="20200506 16:38:57.734" endtime="20200506 16:38:57.734"></status>
 </kw>
 <tags>
 <tag>作者：张鹏</tag>
-<tag>冒烟集-新福建APP</tag>
-<tag>栏目接口/列表页稿件阅读数接口（李昊）</tag>
+<tag>冒烟集-新福建App</tag>
+<tag>推荐模块内容列表接口验证（李昊）</tag>
 </tags>
-<status status="PASS" starttime="20200421 16:11:18.003" endtime="20200421 16:11:18.086" critical="yes"></status>
+<status status="PASS" starttime="20200506 16:38:57.499" endtime="20200506 16:38:57.735" critical="yes"></status>
+</test>
+<test id="s1-t2" name="输入的自定义推荐模块不存在时，接口返回异常">
+<kw name="Get Module View" library="ModuleViewCommon">
+<doc>入参参数只填写必填参数</doc>
+<arguments>
+<arg>${ID0}</arg>
+</arguments>
+<kw name="Fapi Params Set" library="FATL">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to HTTP request parameters.</doc>
+<arguments>
+<arg>id</arg>
+<arg>${id}</arg>
+<arg>curVersions</arg>
+<arg>${CURVERSIONS}</arg>
+</arguments>
+<status status="PASS" starttime="20200506 16:38:57.741" endtime="20200506 16:38:57.741"></status>
+</kw>
+<kw name="Fapi Get" library="FATL">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${APPIF_ALIAS}</arg>
+<arg>${MODULE_VIEW_URL}</arg>
+</arguments>
+<msg timestamp="20200506 16:38:57.785" level="INFO">Get Request using : alias=appif, uri=/moduleView, headers={'APITEST': '1'} json=None</msg>
+<msg timestamp="20200506 16:38:57.785" level="INFO">JSON string is : {</msg>
+<msg timestamp="20200506 16:38:57.785" level="INFO">  "status": -1,</msg>
+<msg timestamp="20200506 16:38:57.785" level="INFO">  "message": "Your server has down or target user not exist !",</msg>
+<msg timestamp="20200506 16:38:57.785" level="INFO">  "data": {}</msg>
+<msg timestamp="20200506 16:38:57.785" level="INFO">}</msg>
+<msg timestamp="20200506 16:38:57.786" level="INFO">d:\python\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<status status="PASS" starttime="20200506 16:38:57.741" endtime="20200506 16:38:57.786"></status>
+</kw>
+<kw name="Fapi Data To Object" library="FATL">
+<doc>Convert Fapi response content to python object</doc>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20200506 16:38:57.786" level="INFO">${data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001957A063940&gt;</msg>
+<status status="PASS" starttime="20200506 16:38:57.786" endtime="20200506 16:38:57.787"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${response_data}</arg>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200506 16:38:57.787" level="INFO">${response_data} = &lt;FATL.Json2Object.Dict2Object object at 0x000001957A063940&gt;</msg>
+<status status="PASS" starttime="20200506 16:38:57.787" endtime="20200506 16:38:57.787"></status>
+</kw>
+<status status="PASS" starttime="20200506 16:38:57.740" endtime="20200506 16:38:57.787"></status>
+</kw>
+<kw name="Fapi Status Should Be" library="FATL">
+<doc>Fapi response status code should be equal to the `expectedCode`</doc>
+<arguments>
+<arg>${RESULT0}</arg>
+</arguments>
+<msg timestamp="20200506 16:38:57.789" level="INFO">Actual status code is: -1</msg>
+<status status="PASS" starttime="20200506 16:38:57.789" endtime="20200506 16:38:57.789"></status>
+</kw>
+<tags>
+<tag>作者：张鹏</tag>
+<tag>冒烟集-新福建App</tag>
+<tag>推荐模块内容列表接口验证（李昊）</tag>
+</tags>
+<status status="PASS" starttime="20200506 16:38:57.737" endtime="20200506 16:38:57.790" critical="yes"></status>
 </test>
 <kw name="Fapi Delete All Sessions" library="FATL" type="teardown">
 <doc>Removes all the session objects</doc>
-<msg timestamp="20200421 16:11:18.089" level="INFO">Delete All Sessions</msg>
-<status status="PASS" starttime="20200421 16:11:18.088" endtime="20200421 16:11:18.089"></status>
+<msg timestamp="20200506 16:38:57.792" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20200506 16:38:57.792" endtime="20200506 16:38:57.792"></status>
 </kw>
-<doc>该文档是获取栏目模块接口用例文档</doc>
-<status status="PASS" starttime="20200421 16:11:17.135" endtime="20200421 16:11:18.089"></status>
+<doc>此文档用于验证推荐模块内容列表接口</doc>
+<status status="PASS" starttime="20200506 16:38:56.950" endtime="20200506 16:38:57.792"></status>
 </suite>
 <statistics>
 <total>
@@ -179,16 +208,13 @@ given `alias`</doc>
 </total>
 <tag>
 <stat pass="2" fail="0">作者：张鹏</stat>
-<stat pass="2" fail="0">冒烟集-新福建APP</stat>
-<stat pass="2" fail="0">栏目接口/列表页稿件阅读数接口（李昊）</stat>
+<stat pass="2" fail="0">冒烟集-新福建App</stat>
+<stat pass="2" fail="0">推荐模块内容列表接口验证（李昊）</stat>
 </tag>
 <suite>
-<stat pass="2" fail="0" id="s1" name="GetArticleCounts">GetArticleCounts</stat>
+<stat pass="2" fail="0" id="s1" name="ModuleView">ModuleView</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20200421 16:11:17.173" level="ERROR">Error in file 'D:\XFJ\API\App_ArticleList\Article_Common.robot': Non-existing setting 'Force Tags'.</msg>
-<msg timestamp="20200421 16:11:17.174" level="ERROR">Error in file 'D:\XFJ\API\App_ArticleList\Article_Common.robot': Non-existing setting '...'.</msg>
-<msg timestamp="20200421 16:11:18.002" level="WARN">Multiple test cases with name '当输入的稿件id存在时，接口返回改稿件的实时点击数' executed in test suite 'GetArticleCounts'.</msg>
 </errors>
 </robot>

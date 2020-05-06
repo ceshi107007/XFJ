@@ -32,7 +32,7 @@ ${COLUMNID}                             8
 ${CODE}                                 XYACCOUNT
 ${START}                                0
 ${COUNT}                                20
-${XY_ID}                                57
+${XY_ID}                                82
 ${CATID}                                186
 ${TYPE}                                 0
 

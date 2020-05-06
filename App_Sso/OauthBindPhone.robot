@@ -24,7 +24,7 @@ ${UID1}                                 174
 ${RESULT}                               -1
 
 *** Test Case ***
-登录微博三方账号，绑定手机号
+登录微博三方账号，绑定手机号（需将解绑、绑定接口结合）
     SSO Oauth Login                     ${WEIBO.provider}
     ...                                 ${WEIBO.oid}
     ...                                 ${WEIBO.nickname}

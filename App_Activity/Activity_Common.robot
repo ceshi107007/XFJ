@@ -5,7 +5,7 @@ Force Tags                              冒烟集-新福建APP     活动相关�
 ...                                     作者：张鹏
 
 *** Variables ***
-${ACTCATS_URI}                          /activityCats       #活动分类接口
+${GETACTCATS_URI}                       /activityCats       #活动分类接口
 ${ACTDETAIL_URI}                        /activityDetail     #活动详情接口
 ${GETACTLIST_URI}                       /activityList       #活动列表接口
 ${ENTRYLIST_URI}                        /entryList          #活动报名名单

@@ -8,13 +8,13 @@ Force Tags                              冒烟集-新福建App     推荐模块�
 
 *** Variables ***
 ${ID0}                                   66666
-${RESULT}                               专题稿件000012
+${RESULT}                               于伟国
 ${RESULT0}                              -1
 
 *** Test Cases ***
 输入的自定义推荐模块存在时,接口返回推荐列表数据
     Get Module View
-    Should Be Equal As Strings          ${response_data.list[0].title}          ${RESULT}
+    Should Be Equal As Strings          ${response_data.list[0].cmiName}          ${RESULT}
 
 输入的自定义推荐模块不存在时，接口返回异常
     Get Module View                     ${ID0}

@@ -7,7 +7,7 @@ Force Tags                              冒烟集-新福建APP     栏目接口/
 ...                                     作者：张鹏
 
 *** Variables ***
-${ID}                                   346                 #稿件存在
+${ID}                                   4061                #稿件存在
 ${ID0}                                  12138               #稿件不存在
 ${RESULT0}                              empty
 
