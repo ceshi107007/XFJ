@@ -8,19 +8,19 @@ Force Tags                              冒烟集-新福建APP     sso-app接口
 
 *** Variables ***
 &{WEIBO}                                provider=sina_weibo
-...                                     oid=7126945184
-...                                     nickname="用户7126945184"
+...                                     oid=5800732080
+...                                     nickname="abcdef西坡"
 &{WECHAT}                               provider=tencent_wechat
 ...                                     oid=o7jOUwwSR2ecmE_wXxsofN7cYbmY
 ...                                     nickname="tester~『测试』"
 &{QQ}                                   provider=tencent_QQ
-...                                     oid=E66F9648D22AEF90FAF657DB25CC275B                #7422D090F908964F3C72C07ECE2B4D1B
-...                                     nickname="lili"
+...                                     oid=62D34A92B2C38EC00356E3CB4B0F03BC                #7422D090F908964F3C72C07ECE2B4D1B
+...                                     nickname="一无所有1111"
 &{APPLE}                                provider=apple
 ...                                     oid=001587
 ...                                     nickname="APPLE001587"
-${RESULT_QQ}                            1234567890123456
-${RESULT_WEIBO}                         用户7126945184
+${RESULT_QQ}                            一无所有1111
+${RESULT_WEIBO}                         abcdef西坡
 ${RESULT_WECHAT}                        tester~『测试』
 ${RESULT_APPLE}                         APPLE001587
 

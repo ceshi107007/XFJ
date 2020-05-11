@@ -7,7 +7,7 @@ Force Tags                              冒烟集-新福建APP     sso-app接口
 ...                                     作者：江宝敏
 
 *** Variables ***
-${NEWPHONE}                             18960713836
+${NEWPHONE}                             17855554444
 &{WEIBO}                                provider=sina_weibo
 ...                                     oid=5800732080
 ...                                     nickname=abcdef
@@ -24,7 +24,7 @@ ${UID1}                                 174
 ${RESULT}                               -1
 
 *** Test Case ***
-登录微博三方账号，绑定手机号（需将解绑、绑定接口结合）
+登录微博三方账号，绑定手机号
     SSO Oauth Login                     ${WEIBO.provider}
     ...                                 ${WEIBO.oid}
     ...                                 ${WEIBO.nickname}

@@ -7,7 +7,7 @@ Force Tags                              冒烟集-新福建APP     sso-app接口
 ...                                     作者：江宝敏
 
 *** Variables ***
-${PHONE}                                18960713836
+${PHONE}                                17855544444
 &{WEIBO}                                provider=sina_weibo
 ...                                     oid=5800732080
 ...                                     nickname=abcdef

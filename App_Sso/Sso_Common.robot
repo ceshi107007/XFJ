@@ -2,8 +2,8 @@
 Documentation                           该文档是获取SSO会员模块接口用例文档
 Resource                                ../Common/Common.robot
 Resource                                ../App_Sso/Random_Time.robot
-Library                                 Secret.py
-Library                                 Secret2.py
+Library                                 ../App_Sso/Secret.py
+Library                                 ../App_Sso/Secret2.py
 Force Tags                              冒烟集-新福建APP     sso-app接口（孙安）
 ...                                     作者：张鹏、江宝敏
 

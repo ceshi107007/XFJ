@@ -160,7 +160,8 @@ Get Xy Info
 
 Xy Rank
     [Documentation]                     翔宇号影响力排行
-    [Arguments]                         ${userid}=${0}
+    [Arguments]                         ${type}
+    ...                                 ${userid}=${0}
     ...                                 ${siteid}=${SITEID}
     ...                                 ${device}=${DEVICE}
     Fapi Params Set                     userID              ${userid}

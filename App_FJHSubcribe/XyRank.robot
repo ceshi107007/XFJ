@@ -8,17 +8,30 @@ Suite Teardown                          Fapi Delete All Sessions
 
 
 *** Variables ***
-${NEW_USERID}                           14
+${TYPE0}                                0                   #近一周
+${TYPE1}                                1                   #上一周
+${TYPE2}                                2                   #近一月
+${TYPE3}                                3                   #上个月
 
 *** Keywords ***
 
 *** Test Cases ***
-未登录账号时查看翔宇号影响力排行,接口返回数据成功（动态数据无法校验）
-    Xy Rank
+查看近一周翔宇号影响力排行,接口返回数据成功（动态数据无法校验）
+    Xy Rank                             ${TYPE0}
     Fapi Status Should Be Succeed
     Fapi Request Should Be Succeed
 
-登录账号时查看翔宇号影响力排行,接口返回成功（动态数据无法校验）
-    Xy Rank                             ${NEW_USERID}
+查看上一周翔宇号影响力排行,接口返回数据成功（动态数据无法校验）
+    Xy Rank                             ${TYPE1}
+    Fapi Status Should Be Succeed
+    Fapi Request Should Be Succeed
+
+查看近一月翔宇号影响力排行,接口返回数据成功（动态数据无法校验）
+    Xy Rank                             ${TYPE2}
+    Fapi Status Should Be Succeed
+    Fapi Request Should Be Succeed
+
+查看上个月翔宇号影响力排行,接口返回数据成功（动态数据无法校验）
+    Xy Rank                             ${TYPE3}
     Fapi Status Should Be Succeed
     Fapi Request Should Be Succeed
