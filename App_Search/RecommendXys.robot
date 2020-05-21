@@ -24,7 +24,7 @@ ${RESULT1}                              []
     Recommend Xys                       ${SITEID}
     ...                                 ${USERID}
     Fapi Status Should Be Succeed
-    Should Be Equal As Strings          ${response_data[0].topic}               ${TOPIC}
+    Fapi Request Should Be Succeed
     Should Be Equal As Strings          ${response_data[0].isFollow}            ${ISFOLLOW}
 
 输入正确的SITEID,获取推荐翔宇号成功，未关注订阅号的用户返回未关注(动态值)
