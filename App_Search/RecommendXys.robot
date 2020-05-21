@@ -11,7 +11,7 @@ ${SITEID}                               1
 ${SITEID1}                              2
 ${USERID}                               494                 #已关注订阅号的用户ID
 ${USERID1}                              583                 #未关注订阅号的用户ID
-${TOPIC}                                福建交警
+#${TOPIC}                                福建交警
 ${ISFOLLOW}                             1
 ${ISFOLLOW1}                            0
 ${RESULT}                               0
