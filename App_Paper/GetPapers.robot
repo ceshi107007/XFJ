@@ -9,7 +9,6 @@ Force Tags                              冒烟集-新福建APP     数字报（�
 *** Variables ***
 ${SITEID}                               1                
 ${SITEID0}                              100               
-${VERSION}                              1587210508000
 ${VERSION0}                             0
 ${RESULT0}                              -1
 ${NAME}                                 福建日报
@@ -18,7 +17,6 @@ ${NAME}                                 福建日报
 报刊列表接口返回数据成功
     Get Papers                          ${SITEID}
     Fapi Status Should Be Succeed
-    Should Be Equal As Strings          ${response_data.version}            ${version}
     Should Be Equal As Strings          ${response_data.papers[0].name}     ${name}
 
 报刊列表接口返回数据为空
