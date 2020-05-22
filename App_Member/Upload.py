@@ -27,7 +27,7 @@ def upload(userid):
     }
     file_payload = {
         "file1": ("filename1.jpg", open("App_Member\\10.jpg", "rb"),"multipart/form-data"),
-        "file2": ("filename2.mp3", open(u"App_Member\\让我们荡起双桨.mp3", "rb"), "multipart/form-data"),
+        "file4": ("filename2.mp3", open(u"App_Member\\让我们荡起双桨.mp3", "rb"), "multipart/form-data"),
     }
     m=MultipartEncoder(file_payload)
     headers["Content-Type"]=m.content_type
