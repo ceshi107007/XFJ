@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200522 12:38:14.860" generator="Robot 3.2b3.dev1 (Python 2.7.13 on win32)">
+<suite source="G:\test_pro\TestProject\api\api\API-0417\API\App_Member\Upload.robot" id="s1" name="Upload">
+<kw type="setup" name="Create Session Common" library="Common">
+<kw name="Fapi Create Session" library="FATL.FapiKeywords">
+<doc>Fapi Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>${APPIF_ALIAS}</arg>
+<arg>${APPIF_URL}</arg>
+</arguments>
+<msg timestamp="20200522 12:38:15.163" level="INFO">Creating Session using : alias=appif, url=https://api1.fjdaily.com/app_if, headers={'APITEST': u'1'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200522 12:38:15.163" starttime="20200522 12:38:15.162"></status>
+</kw>
+<status status="PASS" endtime="20200522 12:38:15.163" starttime="20200522 12:38:15.162"></status>
+</kw>
+<test id="s1-t1" name="上传附件">
+<kw name="Upload File" library="MemberCommon">
+<doc>附件上传</doc>
+<arguments>
+<arg>${USERID}</arg>
+</arguments>
+<kw name="Upload" library="Upload">
+<arguments>
+<arg>${userid}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20200522 12:38:18.245" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20200522 12:38:18.245" level="INFO">C:\Users\huangyu\AppData\Local\Continuum\Anaconda2\lib\site-packages\requests\packages\urllib3\connectionpool.py:843: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20200522 12:38:18.246" level="INFO">${data} = {"errorInfo": "", "fileList": [{"url": "https://img1.fjdaily.com/nis-pic/202005/22/68dbfedc-af74-4ec2-b1b4-33dda0fdef67.mp3", "fileName": "filename2.mp3"}, {"url": "https://img1.fjdaily.com/nis-pic/20...</msg>
+<status status="PASS" endtime="20200522 12:38:18.246" starttime="20200522 12:38:15.165"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${response_data}</arg>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20200522 12:38:18.248" level="INFO">${response_data} = {"errorInfo": "", "fileList": [{"url": "https://img1.fjdaily.com/nis-pic/202005/22/68dbfedc-af74-4ec2-b1b4-33dda0fdef67.mp3", "fileName": "filename2.mp3"}, {"url": "https://img1.fjdaily.com/nis-pic/20...</msg>
+<status status="PASS" endtime="20200522 12:38:18.248" starttime="20200522 12:38:18.246"></status>
+</kw>
+<status status="PASS" endtime="20200522 12:38:18.248" starttime="20200522 12:38:15.165"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${response_data}</arg>
+<arg>fileList</arg>
+</arguments>
+<assign>
+<var>${filelist}</var>
+</assign>
+<msg timestamp="20200522 12:38:18.249" level="INFO">${filelist} = [{"url": "https://img1.fjdaily.com/nis-pic/202005/22/68dbfedc-af74-4ec2-b1b4-33dda0fdef67.mp3", "fileName": "filename2.mp3"}, {"url": "https://img1.fjdaily.com/nis-pic/202005/22/cc0428e5-dbc9-40de-b63...</msg>
+<status status="PASS" endtime="20200522 12:38:18.249" starttime="20200522 12:38:18.249"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${filelist}[0]</arg>
+<arg>fileName</arg>
+</arguments>
+<assign>
+<var>${filename1}</var>
+</assign>
+<msg timestamp="20200522 12:38:18.250" level="INFO">${filename1} = filename2.mp3</msg>
+<status status="PASS" endtime="20200522 12:38:18.250" starttime="20200522 12:38:18.250"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${filelist}[1]</arg>
+<arg>fileName</arg>
+</arguments>
+<assign>
+<var>${filename2}</var>
+</assign>
+<msg timestamp="20200522 12:38:18.251" level="INFO">${filename2} = filename1.jpg</msg>
+<status status="PASS" endtime="20200522 12:38:18.251" starttime="20200522 12:38:18.251"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${filename1}</arg>
+<arg>filename1.jpg</arg>
+</arguments>
+<msg timestamp="20200522 12:38:18.252" level="FAIL">filename2.mp3 != filename1.jpg</msg>
+<status status="FAIL" endtime="20200522 12:38:18.252" starttime="20200522 12:38:18.252"></status>
+</kw>
+<tags>
+<tag>作者：黄羽</tag>
+<tag>冒烟集-新福建APP</tag>
+<tag>附件上传（许雁良）</tag>
+</tags>
+<status status="FAIL" endtime="20200522 12:38:18.253" critical="yes" starttime="20200522 12:38:15.163">filename2.mp3 != filename1.jpg</status>
+</test>
+<kw type="teardown" name="Fapi Delete All Sessions" library="FATL.FapiKeywords">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20200522 12:38:18.257" level="INFO">Delete All Sessions</msg>
+<status status="PASS" endtime="20200522 12:38:18.257" starttime="20200522 12:38:18.256"></status>
+</kw>
+<doc>该文档是附件上传接口用例文档</doc>
+<status status="FAIL" endtime="20200522 12:38:18.257" starttime="20200522 12:38:14.863"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">作者：黄羽</stat>
+<stat fail="1" pass="0">冒烟集-新福建APP</stat>
+<stat fail="1" pass="0">附件上传（许雁良）</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Upload" pass="0">Upload</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200522 12:38:14.875" level="ERROR">Error in file 'G:\test_pro\TestProject\api\api\API-0417\API\App_Member\MemberCommon.robot' on line 7: Setting 'Force Tags' is not allowed in resource file.</msg>
+</errors>
+</robot>
