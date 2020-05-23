@@ -7,10 +7,10 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def uploadPortrait(uid):
-    url='http://appif.xiangyu-extranet.test1.fzyun.io/amuc/api/member/uploadPortrait'
+    url='https://api1.fjdaily.com/app_if/amuc/api/member/uploadPortrait'
     headers={
     }
-    file_payload={"data":("touxiang.jpg",open("10.jpg","rb"),"multipart/form-data")}
+    file_payload={"data":("touxiang.jpg", open("10.jpg", "rb"), "multipart/form-data")}
     m=MultipartEncoder(file_payload)            #避免把大文件读取到内存中导致内存溢出，所以这里我将上传的文件转化为数据流的形式发送
     headers["Content-Type"]=m.content_type
     new_url=url+"?uid="+uid
@@ -21,13 +21,13 @@ def uploadPortrait(uid):
     js=json.loads(req.content)
     return js
 
-def upload(userid):
+def upload(userid,filename1,filename2):
     url='https://api1.fjdaily.com/app_if/upload'
     headers={
     }
     file_payload = {
-        "file1": ("filename1.jpg", open("App_Member\\10.jpg", "rb"),"multipart/form-data"),
-        "file4": ("filename2.mp3", open(u"App_Member\\让我们荡起双桨.mp3", "rb"), "multipart/form-data"),
+        "audio": (filename1, open(u"App_Member\\让我们荡起双桨.mp3", "rb"), "multipart/form-data"),
+        "pic": (filename2, open("App_Member\\10.jpg", "rb"),"multipart/form-data"),
     }
     m=MultipartEncoder(file_payload)
     headers["Content-Type"]=m.content_type

@@ -8,17 +8,21 @@ Suite Teardown                          Fapi Delete All Sessions
 
 *** Variables ***
 ${USERID}                               494
-${FILENAME1}                            filename1.jpg
-${FILENAME2}                            filename2.mp3
-${RESULT1}                              success
+${NAME1}                                filename1.mp3
+${NAME2}                                filename2.jpg
+${RESULT}                               True
 
 *** Keywords ***
 
 *** Test Case ***
-上传附件
+上传附件，接口返回成功
     Upload File                         ${USERID}
+    ...                                 ${NAME1}
+    ...                                 ${NAME2}
+    ${success}                          Get From Dictionary                     ${response_data}    success
     ${filelist}                         Get From Dictionary                     ${response_data}    fileList
     ${filename1}                        Get From Dictionary                     ${filelist}[0]      fileName
     ${filename2}                        Get From Dictionary                     ${filelist}[1]      fileName
-    Should Be Equal As Strings          ${filename1}        ${FILENAME1}
-    Should Be Equal As Strings          ${filename2}        ${FILENAME2}
+    Should Be Equal As Strings          ${success}          ${RESULT}
+    Should Be Equal As Strings          ${filename1}        ${NAME1}
+    Should Be Equal As Strings          ${filename2}        ${NAME2}

@@ -12,7 +12,6 @@ ${CHECKUSER_URI}                        /amuc/api/order/checkuser
 ${CETPORTRAIT_URI}                      /amuc/api/member/getPortrait
 ${SITEID}                               1
 
-
 *** Keywords ***
 Check User
     [Documentation]                     检查用户是否存在
@@ -28,5 +27,7 @@ Check User
 Upload File
     [Documentation]                     附件上传
     [Arguments]                         ${userid}
-    ${data} =                           upload              ${userid}
+    ...                                 ${filename1}
+    ...                                 ${filename2}
+    ${data} =                           upload              ${userid}           ${filename1}        ${filename2}
     Set Suite Variable                  ${response_data}    ${data}
